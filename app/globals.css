@@ -2,18 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --dq-blue: #1a1a2e;
-  --dq-blue-light: #16213e;
-  --dq-border: #4a4a6e;
-  --dq-gold: #f9d56e;
-  --dq-cream: #f5f3e7;
-  --dq-red: #e74c3c;
-  --dq-green: #2ecc71;
-  --dq-purple: #9b59b6;
-  --dq-text: #e8e8e8;
-}
-
+/* base */
 * {
   box-sizing: border-box;
 }
@@ -23,223 +12,411 @@ html {
 }
 
 body {
-  background: var(--dq-blue);
+  margin: 0;
+  background: var(--night-0);
+  color: var(--dq-text);
+  -webkit-font-smoothing: none;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   THE BUILD LOG — DQ night-dungeon visual system
+   ============================================================ */
+
+:root {
+  --night-0: #0b0b1e;
+  --night-1: #131330;
+  --dq-blue: #1a1a2e;
+  --dq-panel: #141b33;
+  --dq-border: #4a4a6e;
+  --dq-gold: #f9d56e;
+  --dq-gold-dark: #c9973a;
+  --dq-cream: #f5f3e7;
+  --dq-red: #ff6b5e;
+  --dq-green: #3ddc84;
+  --dq-purple: #b07ce8;
+  --dq-text: #e8e8f0;
+  --dq-muted: #9a9ab8;
+  --px-shadow: 3px 3px 0 rgba(4, 4, 14, 0.7);
+}
+
+.journey-page {
+  position: relative;
+  min-height: 100vh;
   color: var(--dq-text);
   font-family: "VT323", "Courier New", monospace;
   font-size: 18px;
-  -webkit-font-smoothing: none;
-  image-rendering: pixelated;
+  line-height: 1.55;
   overflow-x: hidden;
-  /* Subtle CRT vignette */
-  background-image:
-    radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.4) 100%);
-  min-height: 100vh;
+  background:
+    radial-gradient(1100px 560px at 78% -6%, rgba(124, 88, 220, 0.16), transparent 62%),
+    radial-gradient(900px 480px at 12% 8%, rgba(77, 217, 232, 0.05), transparent 55%),
+    linear-gradient(180deg, var(--night-0) 0%, #141432 30%, var(--dq-blue) 58%, #0e0e22 100%);
 }
 
-/* Pixel font for headers */
+/* --- scanlines + vignette (subtle CRT) ---------------------- */
+.journey-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  background:
+    repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, 0.055) 0px,
+      rgba(0, 0, 0, 0.055) 1px,
+      transparent 1px,
+      transparent 3px),
+    radial-gradient(ellipse at center, transparent 62%, rgba(0, 0, 0, 0.34) 100%);
+}
+
 .pixel-font {
   font-family: "Press Start 2P", monospace;
 }
 
-/* DQ Dialogue Box — the signature element */
+/* --- DQ dialogue box — the signature frame ------------------- */
 .dq-box {
-  background: var(--dq-blue-light);
-  border: 3px solid var(--dq-gold);
-  border-radius: 0;
-  box-shadow:
-    0 0 0 3px var(--dq-blue),
-    0 0 0 6px var(--dq-gold),
-    0 4px 0 8px rgba(0,0,0,0.5);
   position: relative;
+  background: var(--dq-panel);
+  border: 3px solid var(--dq-gold);
+  box-shadow:
+    0 0 0 3px var(--night-0),
+    0 0 0 6px var(--dq-gold-dark),
+    0 6px 0 6px rgba(0, 0, 0, 0.45),
+    inset 0 2px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.35);
 }
 
-/* Inner double border effect */
 .dq-box-inner {
-  border: 1px solid var(--dq-border);
+  border: 1px solid rgba(249, 213, 110, 0.28);
   padding: 1.5rem;
 }
 
-/* HP Bar */
-.hp-bar-container {
-  background: var(--dq-blue);
-  border: 2px solid var(--dq-border);
-  height: 16px;
-  position: relative;
-  overflow: hidden;
+
+/* --- pixel title --------------------------------------------- */
+.pixel-title {
+  color: var(--dq-gold);
+  text-shadow:
+    3px 3px 0 rgba(4, 4, 14, 0.85),
+    0 0 18px rgba(249, 213, 110, 0.35);
+  letter-spacing: 2px;
 }
 
-.hp-bar-fill {
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    var(--dq-green) 0%,
-    var(--dq-green) 60%,
-    var(--dq-gold) 60%,
-    var(--dq-gold) 85%,
-    var(--dq-red) 85%
-  );
-  transition: width 1s ease-out;
-  position: relative;
+.section-label {
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  color: var(--dq-gold);
+  letter-spacing: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-label::before,
+.section-label::after {
+  content: "";
+  width: 42px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg,
+    var(--dq-gold-dark) 0 6px, transparent 6px 10px);
+  opacity: 0.85;
 }
 
-/* Pixel dotted border for quest nodes */
-.quest-node {
-  image-rendering: pixelated;
+/* --- hero sprite --------------------------------------------- */
+.hero-bounce {
+  animation: hero-bounce 2.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(122, 167, 240, 0.35));
 }
-
-/* Boss emoji — big and centered */
-.boss-emoji {
-  font-size: 4rem;
-  line-height: 1;
-  filter: drop-shadow(0 0 8px rgba(249, 213, 110, 0.4));
-  display: inline-block;
-}
-
-/* Hero sprite — chibi style via emoji with glow */
-.hero-sprite {
-  font-size: 2.5rem;
-  display: inline-block;
-  filter: drop-shadow(0 0 6px rgba(46, 204, 113, 0.5));
-  animation: hero-bounce 2s ease-in-out infinite;
-}
-
 @keyframes hero-bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-6px); }
 }
 
-/* Quest path — dashed line connecting nodes */
-.quest-path {
-  stroke: var(--dq-gold);
-  stroke-width: 3;
-  stroke-dasharray: 8 6;
-  fill: none;
-  opacity: 0.5;
-  animation: dash-march 2s linear infinite;
+/* --- starfield ------------------------------------------------ */
+.starfield {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--dq-cream);
+  animation: star-twinkle var(--tw-dur, 3s) ease-in-out infinite;
+  animation-delay: var(--tw-delay, 0s);
+  opacity: 0.7;
+}
+.star.gold { background: var(--dq-gold); }
+.star.big { width: 4px; height: 4px; box-shadow: 0 0 6px rgba(249, 213, 110, 0.6); }
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.95; }
 }
 
-@keyframes dash-march {
-  to { stroke-dashoffset: -14; }
+.shooting-star {
+  position: absolute;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(245, 243, 231, 0.9));
+  transform: rotate(-32deg);
+  opacity: 0;
+  animation: shoot 11s linear infinite;
+  animation-delay: var(--tw-delay, 0s);
+}
+@keyframes shoot {
+  0%, 92% { opacity: 0; transform: rotate(-32deg) translateX(0); }
+  93% { opacity: 0.9; }
+  100% { opacity: 0; transform: rotate(-32deg) translateX(-46vw) translateY(-24vw); }
 }
 
-/* Status badges */
+/* --- HP bar (segmented) --------------------------------------- */
+.hp-bar {
+  display: flex;
+  gap: 3px;
+  height: 18px;
+  padding: 3px;
+  background: #0c0c20;
+  border: 2px solid var(--dq-border);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+.hp-seg {
+  flex: 1 1 0;
+  background: #20203a;
+  position: relative;
+}
+.hp-seg.on { background: var(--seg, var(--dq-green)); }
+.hp-seg.on::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.28);
+}
+.hp-high { --seg: var(--dq-green); }
+.hp-mid { --seg: var(--dq-gold); }
+.hp-low { --seg: var(--dq-red); }
+
+/* --- badges ---------------------------------------------------- */
 .badge {
   font-family: "Press Start 2P", monospace;
   font-size: 8px;
-  padding: 4px 8px;
+  padding: 5px 9px;
   border: 2px solid;
   display: inline-block;
   letter-spacing: 1px;
+  box-shadow: 2px 2px 0 rgba(4, 4, 14, 0.7);
 }
+.badge-battle { color: var(--dq-red); border-color: var(--dq-red); background: rgba(255, 107, 94, 0.12); }
+.badge-victory { color: var(--dq-green); border-color: var(--dq-green); background: rgba(61, 220, 132, 0.12); }
+.badge-unknown { color: var(--dq-muted); border-color: var(--dq-border); background: rgba(74, 74, 110, 0.18); }
 
-.badge-battle {
-  color: var(--dq-red);
-  border-color: var(--dq-red);
-  background: rgba(231, 76, 60, 0.15);
-}
-
-.badge-victory {
-  color: var(--dq-green);
-  border-color: var(--dq-green);
-  background: rgba(46, 204, 113, 0.15);
-}
-
-.badge-unknown {
-  color: var(--dq-border);
-  border-color: var(--dq-border);
-  background: rgba(74, 74, 110, 0.15);
-}
-
-/* Tech tag — RPG item style */
+/* --- inventory item tags --------------------------------------- */
 .item-tag {
   font-family: "VT323", monospace;
-  font-size: 15px;
-  padding: 2px 10px;
+  font-size: 16px;
+  line-height: 1;
+  padding: 6px 10px;
   border: 1px solid var(--dq-border);
-  background: rgba(22, 33, 62, 0.8);
+  border-bottom-width: 3px;
+  background: rgba(16, 16, 38, 0.85);
   color: var(--dq-cream);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
 
-/* Link — RPG command style */
+/* --- command buttons -------------------------------------------- */
 .cmd-link {
   font-family: "Press Start 2P", monospace;
   font-size: 10px;
   color: var(--dq-gold);
   text-decoration: none;
-  padding: 6px 12px;
+  padding: 9px 14px;
   border: 2px solid var(--dq-gold);
-  background: rgba(249, 213, 110, 0.1);
+  background: rgba(249, 213, 110, 0.08);
   display: inline-block;
-  transition: all 0.15s;
   letter-spacing: 1px;
+  box-shadow: 3px 3px 0 rgba(4, 4, 14, 0.8);
+  transition: background 0.12s, color 0.12s, transform 0.08s, box-shadow 0.08s;
 }
-
 .cmd-link:hover {
   background: var(--dq-gold);
   color: var(--dq-blue);
 }
-
-/* Blinking arrow for "continue" */
-.dq-arrow {
-  display: inline-block;
-  animation: arrow-blink 1s steps(2) infinite;
-  color: var(--dq-gold);
+.cmd-link:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
+/* --- PRESS START ------------------------------------------------ */
+.press-start {
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  color: var(--dq-cream);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 2px;
+  padding: 10px 18px;
+  animation: press-blink 1.6s steps(2) infinite;
+  transition: color 0.15s, text-shadow 0.15s;
+}
+.press-start:hover {
+  color: var(--dq-gold);
+  text-shadow: 0 0 12px rgba(249, 213, 110, 0.55);
+}
+@keyframes press-blink {
+  0%, 60% { opacity: 1; }
+  61%, 100% { opacity: 0.25; }
+}
+
+/* --- blinking continue arrow ------------------------------------- */
+.dq-arrow {
+  display: inline-block;
+  animation: arrow-blink 1.1s steps(2) infinite;
+  color: var(--dq-gold);
+}
 @keyframes arrow-blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
 
-/* CRT scanline overlay */
-.crt-overlay::before {
+/* --- typewriter caret --------------------------------------------- */
+.type-caret {
+  display: inline-block;
+  width: 9px;
+  height: 16px;
+  margin-left: 3px;
+  background: var(--dq-gold);
+  vertical-align: -2px;
+  animation: caret-blink 0.8s steps(2) infinite;
+}
+@keyframes caret-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* --- EXP items ------------------------------------------------------ */
+.exp-float {
+  display: inline-block;
+  font-family: "Press Start 2P", monospace;
+  font-size: 7px;
+  color: var(--dq-purple);
+  margin-left: 8px;
+  opacity: 0;
+  animation: exp-float 1.4s ease-out forwards;
+}
+@keyframes exp-float {
+  0% { opacity: 0; transform: translateY(6px); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-14px); }
+}
+
+/* --- demon king ominous glow ---------------------------------------- */
+.demon-glow {
+  animation: demon-pulse 3.2s ease-in-out infinite;
+}
+@keyframes demon-pulse {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(176, 124, 232, 0.25)); }
+  50% { filter: drop-shadow(0 0 22px rgba(176, 124, 232, 0.6)); }
+}
+
+/* --- quest map ------------------------------------------------------- */
+.map-node { cursor: pointer; }
+.map-node .node-body { transition: transform 0.18s ease; }
+.map-node:hover .node-body { transform: translateY(-3px); }
+.map-frame {
+  fill: #0d0d22;
+  stroke: var(--dq-border);
+  stroke-width: 2;
+}
+.map-titlebar {
+  fill: #10102a;
+}
+.map-dot {
+  fill: var(--dq-gold);
+}
+
+/* --- mobile quest trail ------------------------------------------------ */
+.quest-trail {
+  position: relative;
+}
+.quest-trail::before {
   content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0,0,0,0.06) 0px,
-    rgba(0,0,0,0.06) 1px,
-    transparent 1px,
-    transparent 3px
-  );
-  pointer-events: none;
-  z-index: 9999;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 27px;
+  border-left: 3px dashed rgba(249, 213, 110, 0.28);
 }
 
-/* Quest map node */
-.map-node {
-  cursor: pointer;
-  transition: transform 0.2s;
+/* --- misc ---------------------------------------------------------------- */
+.kbd-hint {
+  font-family: "VT323", monospace;
+  color: var(--dq-muted);
+  font-size: 15px;
+  letter-spacing: 1px;
 }
 
-.map-node:hover {
-  transform: scale(1.15);
+.flicker {
+  animation: flicker 7s linear infinite;
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  3% { opacity: 0.92; }
+  4% { opacity: 1; }
+  38% { opacity: 1; }
+  39% { opacity: 0.94; }
+  40% { opacity: 1; }
 }
 
-/* Title glow */
-.title-glow {
-  text-shadow:
-    0 0 4px rgba(249, 213, 110, 0.5),
-    0 0 8px rgba(249, 213, 110, 0.3),
-    2px 2px 0 var(--dq-blue);
+/* --- scrollbar ------------------------------------------------------------- */
+.journey-page ::-webkit-scrollbar { width: 10px; }
+.journey-page ::-webkit-scrollbar-track { background: var(--night-0); }
+.journey-page ::-webkit-scrollbar-thumb {
+  background: var(--dq-gold-dark);
+  border: 2px solid var(--night-0);
 }
+.journey-page ::-webkit-scrollbar-thumb:hover { background: var(--dq-gold); }
 
-/* Reduced motion */
+/* --- reduced motion ---------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  .journey-page *, .journey-page *::before, .journey-page *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .hero-sprite, .dq-arrow { animation: none; }
-  .quest-path { animation: none; }
+  .hero-bounce, .dq-arrow, .press-start, .type-caret,
+  .demon-glow, .star, .shooting-star { animation: none !important; }
 }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--dq-blue); }
-::-webkit-scrollbar-thumb {
-  background: var(--dq-gold);
-  border: 1px solid var(--dq-blue);
+.float-moon {
+  animation: float-moon 9s ease-in-out infinite;
+}
+@keyframes float-moon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* quest map road + rings */
+.road-dash {
+  stroke: var(--dq-gold);
+  stroke-width: 3.5;
+  stroke-dasharray: 9 7;
+  opacity: 0.8;
+  animation: dash-march 1.4s linear infinite;
+}
+@keyframes dash-march {
+  to { stroke-dashoffset: -14; }
+}
+.pulse-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+@keyframes pulse-ring {
+  0% { opacity: 0.75; transform: scale(0.55); }
+  100% { opacity: 0; transform: scale(1.6); }
 }

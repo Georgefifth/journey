@@ -1,17 +1,26 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "The Build Log — A Hero's Hackathon Journey",
   description:
     "A hero's journey through hackathon dungeons. What I built, what broke, what I learned.",
+  icons: {
+    icon: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%231a1a2e'/%3E%3Crect x='3' y='1' width='2' height='1' fill='%234dd9e8'/%3E%3Crect x='2' y='2' width='4' height='1' fill='%234dd9e8'/%3E%3Crect x='1' y='3' width='6' height='1' fill='%234dd9e8'/%3E%3Crect x='1' y='4' width='6' height='1' fill='%234dd9e8'/%3E%3Crect x='0' y='5' width='8' height='1' fill='%234dd9e8'/%3E%3Crect x='0' y='6' width='8' height='1' fill='%234dd9e8'/%3E%3Crect x='1' y='7' width='6' height='1' fill='%234dd9e8'/%3E%3Crect x='2' y='3' width='1' height='2' fill='%2310102a'/%3E%3Crect x='5' y='3' width='1' height='2' fill='%2310102a'/%3E%3Crect x='3' y='2' width='1' height='1' fill='%23a8f0f8'/%3E%3C/svg%3E",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0b0b1e",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
       <head>
