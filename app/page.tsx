@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { hackathons } from "../data/hackathons";
-import SignalTrace from "../components/SignalTrace";
-import TimelineEntry from "../components/TimelineEntry";
+import { hackathons, demonKing } from "../data/hackathons";
+import QuestMap from "../components/QuestMap";
+import BossEncounter from "../components/BossEncounter";
 
 export default function Home() {
   const [activeId, setActiveId] = useState<string | null>(
@@ -19,7 +19,6 @@ export default function Home() {
     });
   };
 
-  // Track scroll to update active blip
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -40,64 +39,69 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  const shippingCount = hackathons.filter(
-    (h) => h.status === "shipping"
-  ).length;
-  const shippedCount = hackathons.filter((h) => h.status === "shipped").length;
+  const inBattle = hackathons.filter((h) => h.status === "in-battle").length;
+  const victories = hackathons.filter((h) => h.status === "victorious").length;
 
   return (
-    <main className="min-h-screen">
-      {/* Hero */}
-      <section className="max-w-5xl mx-auto px-6 pt-20 pb-12">
+    <main className="min-h-screen crt-overlay">
+      {/* Hero / Title Screen */}
+      <section className="max-w-4xl mx-auto px-6 pt-16 pb-10 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Eyebrow */}
-          <div className="font-mono text-xs text-mist tracking-widest uppercase mb-6">
-            georgefifth / build log
-          </div>
+          {/* Hero sprite */}
+          <div className="hero-sprite mb-4">🧙‍♂️</div>
 
           {/* Title */}
-          <h1 className="font-display text-5xl md:text-7xl text-bone leading-[1.05] mb-4">
-            The Build Log
+          <h1 className="pixel-font text-2xl md:text-4xl text-[var(--dq-gold)] title-glow mb-4 leading-tight">
+            THE BUILD LOG
           </h1>
-          <p className="font-display italic text-xl md:text-2xl text-signal mb-8">
-            a signal trace of hackathons — what I built, what broke, what I
-            learned.
+
+          {/* Subtitle — RPG intro style */}
+          <p className="text-[var(--dq-cream)] text-xl mb-2 italic">
+            A hero&rsquo;s journey through hackathon dungeons
+          </p>
+          <p className="text-[var(--dq-text)] text-base mb-8">
+            What I built. What broke. What I learned.
           </p>
 
-          {/* Stats line */}
-          <div className="font-mono text-sm text-mist flex flex-wrap gap-x-6 gap-y-2">
-            <span>
-              <span className="text-bone">{hackathons.length}</span> entered
-            </span>
-            <span>
-              <span className="text-signal">{shippingCount}</span> shipping
-            </span>
-            <span>
-              <span className="text-amber">{shippedCount}</span> shipped
-            </span>
-            <span className="text-mist/60">
-              currently: {hackathons[0]?.project}
-              <span className="cursor-blink" />
-            </span>
+          {/* Stats — RPG status line */}
+          <div className="inline-block dq-box px-6 py-3">
+            <div className="dq-box-inner" style={{ padding: "0.5rem 1rem" }}>
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm">
+                <span className="text-[var(--dq-cream)]">
+                  ⚔️ Battles: <span className="text-[var(--dq-gold)]">{hackathons.length}</span>
+                </span>
+                <span className="text-[var(--dq-cream)]">
+                  🔥 In Battle: <span className="text-[var(--dq-red)]">{inBattle}</span>
+                </span>
+                <span className="text-[var(--dq-cream)]">
+                  🏆 Victories: <span className="text-[var(--dq-green)]">{victories}</span>
+                </span>
+              </div>
+            </div>
           </div>
         </motion.div>
       </section>
 
-      {/* Signal trace */}
-      <section className="max-w-5xl mx-auto px-6 mb-16">
+      {/* Quest Map */}
+      <section className="max-w-4xl mx-auto px-6 mb-12">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <div className="font-mono text-[10px] uppercase tracking-widest text-mist/60 mb-2">
-            signal trace — click a blip
+          <div className="text-center mb-2">
+            <span className="pixel-font text-[10px] text-[var(--dq-gold)]">
+              ◆ WORLD MAP ◆
+            </span>
           </div>
-          <SignalTrace
+          <p className="text-center text-[var(--dq-text)] text-sm mb-4">
+            Click a castle to jump to the battle log
+          </p>
+          <QuestMap
             hackathons={hackathons}
             activeId={activeId}
             onSelect={handleSelect}
@@ -105,44 +109,57 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Timeline */}
-      <section className="max-w-5xl mx-auto px-6 pb-32">
-        <div className="relative">
-          <div className="timeline-spine" />
-          <div className="space-y-0">
-            {hackathons.map((h, i) => (
-              <TimelineEntry key={h.id} hackathon={h} index={i} />
-            ))}
-          </div>
+      {/* Battle Logs */}
+      <section className="max-w-3xl mx-auto px-6 pb-20">
+        <div className="text-center mb-10">
+          <span className="pixel-font text-[10px] text-[var(--dq-gold)]">
+            ◆ BATTLE LOGS ◆
+          </span>
         </div>
 
-        {/* Future placeholder */}
+        {hackathons.map((h, i) => (
+          <BossEncounter key={h.id} hackathon={h} index={i} />
+        ))}
+
+        {/* Demon King — final boss placeholder */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="relative pl-8 pt-4"
+          className="dq-box mt-12"
         >
-          <div className="absolute left-0 top-6 w-2 h-2 rounded-full border border-surface-2 bg-ink" />
-          <div className="font-mono text-xs text-mist/50 italic">
-            next signal incoming...
+          <div className="dq-box-inner text-center">
+            <div className="boss-emoji mb-3" style={{ opacity: 0.5 }}>
+              {demonKing.emoji}
+            </div>
+            <h3 className="pixel-font text-sm text-[var(--dq-gold)] mb-2">
+              {demonKing.name}
+            </h3>
+            <p className="text-[var(--dq-text)] italic text-sm">
+              {demonKing.hint}
+            </p>
+            <div className="mt-4">
+              <span className="dq-arrow pixel-font text-[10px]">
+                ▼ THE JOURNEY CONTINUES ▼
+              </span>
+            </div>
           </div>
         </motion.div>
       </section>
 
       {/* Footer */}
-      <footer className="max-w-5xl mx-auto px-6 pb-12 border-t border-surface-2 pt-8">
-        <div className="flex flex-wrap justify-between gap-4 font-mono text-xs text-mist">
-          <span>
-            built with next.js + framer motion / deployed on vercel
-          </span>
+      <footer className="max-w-4xl mx-auto px-6 pb-12 text-center">
+        <div className="border-t border-[var(--dq-border)] pt-6">
+          <p className="text-[var(--dq-text)] text-sm mb-3">
+            Built with Next.js + Framer Motion / Deployed on Vercel
+          </p>
           <a
             href="https://github.com/Georgefifth"
             target="_blank"
             rel="noopener noreferrer"
-            className="link-arrow"
+            className="cmd-link"
           >
-            → github
+            ▶ GITHUB
           </a>
         </div>
       </footer>

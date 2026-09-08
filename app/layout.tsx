@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "The Build Log — Georgefifth's Hackathon Journey",
+  title: "The Build Log — A Hero's Hackathon Journey",
   description:
-    "A signal trace of hackathons: what I built, what I learned, what failed.",
+    "A hero's journey through hackathon dungeons. What I built, what broke, what I learned.",
 };
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
           rel="stylesheet"
         />
       </head>
