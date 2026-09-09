@@ -80,6 +80,23 @@ export const slimeBoss: PixelMap = [
   "....kkkkkkkk....",
 ];
 
+// blink frame: eyes (transparent holes) closed to dark-cyan lines
+export const slimeBossBlink: PixelMap = [
+  "......kkkk......",
+  "....kkcccckk....",
+  "...kcccccccck...",
+  "..kcCCccccxcck..",
+  ".kcccccccccccck.",
+  ".kcCccccccccccck",
+  "kccxxccccccxxcck",
+  "kccxxccccccxxcck",
+  "kccccckkkcccccck",
+  "kcccccccccccccck",
+  ".kcccccccccccck.",
+  "..kkcccccccckk..",
+  "....kkkkkkkk....",
+];
+
 // --- Castle node (quest site) -------------------------------
 export const castle: PixelMap = [
   "......kSo.......",

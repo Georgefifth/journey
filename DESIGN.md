@@ -1,4 +1,4 @@
-# The Build Log — Design Brief (VER.2.0, visual refinement pass)
+# The Build Log — Design Brief (VER.2.2, game-feel pass)
 
 ## Concept
 
@@ -9,6 +9,40 @@ battling bosses, gaining EXP, and working toward the final Demon King.
 The metaphor: hackathons are RPG quests. Shipping under deadline pressure is
 battle. Bugs are damage. Learnings are EXP. The final boss (Procrastination) is
 never truly defeated — the journey continues.
+
+## What changed in VER.2.2
+
+1. **The slime is alive.** The boss sprite idles with a slow pixel squash
+   & stretch and blinks every ~4.6s (a second blink-frame sprite overlays
+   the transparent eye holes — pure pixels, no filters).
+2. **8-bit SFX.** A tiny Web Audio square-wave engine (`lib/blip.ts`):
+   PRESS START plays a rising E5→A5 fanfare, map castles play a menu blip
+   on click. AudioContext is created lazily on first gesture (autoplay
+   policy); a fixed HUD chip (bottom-right, `SFX ON/OFF`) toggles and
+   persists mute state in localStorage.
+3. **Click-to-skip dialogue.** The typewriter story can be completed with
+   a click (also keyboard-accessible via the card's natural focus flow).
+4. **Hit feedback.** The in-battle castle shudders in sync with the slash
+   flash (same 0.9s tempo).
+5. All new motion is disabled under `prefers-reduced-motion`.
+
+## What changed in VER.2.1
+
+1. **Social share image.** `public/og.png` (1200×630) — pixel hero between a
+   castle and the demon tower, generated from the same sprite palette.
+   Wired up via `metadataBase` + `openGraph` + `twitter` card metadata, so
+   links unfurl with the full pixel poster everywhere.
+2. **A living map sky.** The world map now has a pixel moon with a soft
+   radial halo, three drifting cloud silhouettes (deterministic shapes, CSS
+   keyframe drift with negative delays so they're mid-flight on load), and
+   two two-frame-flapping birds gliding across on long linear loops.
+3. **Pond shimmer.** Two blinking cyan glints on the pond surface.
+4. **Demon tower windows breathe.** Purple window rects pulse on both the
+   map's tower node and the big Demon King sprite (staggered delays).
+5. **Cursed mist.** Purple particles slowly rise from the Demon King tower's
+   base (Framer Motion loops, `aria-hidden`).
+6. **Accessibility.** All new ambient animations are disabled under
+   `prefers-reduced-motion` (the block-caret / typewriter already were).
 
 ## What changed in VER.2.0
 
@@ -97,7 +131,8 @@ bossSprite?: "slime"; // optional pixel sprite key; falls back to bossEmoji
 - Tailwind CSS 3 (palette via CSS variables; sprite colors in `PALETTE`)
 - Framer Motion (scroll-triggered reveals, springs)
 - Google Fonts: Press Start 2P + VT323 (via `<link>`; no next/font needed)
-- Zero image assets — everything is inline SVG pixel art
+- Zero runtime image dependencies — everything on the page is inline SVG
+  pixel art; the only raster asset is `public/og.png` for social embeds
 
 ## Future ideas
 

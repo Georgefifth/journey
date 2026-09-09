@@ -349,7 +349,7 @@ body {
   top: 0;
   bottom: 0;
   left: 27px;
-  border-left: 3px dashed rgba(249, 213, 110, 0.28);
+  border-left: 3px dashed rgba(249, 213, 110, 0.4);
 }
 
 /* --- misc ---------------------------------------------------------------- */
@@ -389,7 +389,10 @@ body {
     transition-duration: 0.01ms !important;
   }
   .hero-bounce, .dq-arrow, .press-start, .type-caret,
-  .demon-glow, .star, .shooting-star { animation: none !important; }
+  .demon-glow, .star, .shooting-star,
+  .map-cloud-drift, .bird-flap-a, .bird-flap-b,
+  .pond-shimmer, .tower-window, .road-dash, .pulse-ring,
+  .slime-idle, .slime-blink-frame, .castle-hit { animation: none !important; }
 }
 
 .float-moon {
@@ -419,4 +422,96 @@ body {
 @keyframes pulse-ring {
   0% { opacity: 0.75; transform: scale(0.55); }
   100% { opacity: 0; transform: scale(1.6); }
+}
+
+/* --- map ambience: clouds, birds, pond shimmer, tower windows ---------- */
+.map-cloud-drift {
+  animation: cloud-drift 80s linear infinite;
+}
+@keyframes cloud-drift {
+  from { transform: translateX(-220px); }
+  to { transform: translateX(1420px); }
+}
+.bird-flap-a { animation: flap-a 0.55s steps(1) infinite; }
+.bird-flap-b { animation: flap-b 0.55s steps(1) infinite; }
+@keyframes flap-a {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes flap-b {
+  0%, 49% { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+.pond-shimmer {
+  opacity: 0;
+  animation: pond-shimmer 2.3s ease-in-out infinite;
+}
+@keyframes pond-shimmer {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.8; }
+}
+.tower-window {
+  opacity: 0.55;
+  animation: tower-window 2.8s ease-in-out infinite;
+}
+@keyframes tower-window {
+  0%, 100% { opacity: 0.18; }
+  50% { opacity: 0.95; }
+}
+.mist-particle {
+  width: 8px;
+  height: 8px;
+  background: var(--dq-purple);
+  opacity: 0;
+}
+
+/* --- boss life: slime idle + blink, castle hit-shake ------------------- */
+.slime-idle {
+  transform-origin: 50% 100%;
+  animation: slime-squash 3.4s ease-in-out infinite;
+}
+@keyframes slime-squash {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(1.03, 0.96); }
+}
+.slime-blink-frame {
+  opacity: 0;
+  animation: slime-blink 4.6s steps(1) infinite;
+}
+@keyframes slime-blink {
+  0%, 94.5%, 100% { opacity: 0; }
+  95%, 97.5% { opacity: 1; }
+}
+.castle-hit {
+  animation: castle-hit 0.9s linear infinite;
+}
+@keyframes castle-hit {
+  0%, 18%, 50%, 100% { transform: translate(0, 0); }
+  22% { transform: translate(-1.5px, 1px); }
+  30% { transform: translate(1.5px, -1px); }
+  38% { transform: translate(-1px, 0.5px); }
+}
+
+/* --- SFX HUD toggle ----------------------------------------------------- */
+.sfx-toggle {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 60;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: var(--dq-muted);
+  background: rgba(16, 16, 42, 0.85);
+  border: 2px solid var(--dq-border);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  padding: 7px 9px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+.sfx-toggle:hover {
+  color: var(--dq-gold);
+  border-color: var(--dq-gold-dark);
+}
+.sfx-toggle[aria-pressed="true"] {
+  color: var(--dq-gold);
 }

@@ -28,8 +28,41 @@ export default function DemonKing() {
         transition={{ duration: 0.55, delay: 0.35 }}
       >
         <div className="dq-box-inner text-center">
-          <div className="demon-glow inline-block mb-3">
+          <div className="demon-glow relative inline-block mb-3">
             <PixelSprite map={demonTower} scale={5} label="A dark tower on the horizon" />
+
+            {/* tower windows breathing purple (sprite is 16w x 15h at scale 5) */}
+            {[0, 1, 2].map((i) => (
+              <span
+                key={`win-${i}`}
+                aria-hidden="true"
+                className="tower-window absolute bg-[#b07ce8]"
+                style={{
+                  left: "37.5%",
+                  top: `${40 + i * 20}%`,
+                  width: 5,
+                  height: 5,
+                  animationDelay: `${i * 0.9}s`,
+                }}
+              />
+            ))}
+
+            {/* cursed mist rising from the base */}
+            {[0, 1, 2].map((i) => (
+              <motion.span
+                key={`mist-${i}`}
+                aria-hidden="true"
+                className="mist-particle absolute"
+                style={{ left: `${26 + i * 22}%`, bottom: 0 }}
+                animate={{ y: [8, -44], opacity: [0, 0.55, 0] }}
+                transition={{
+                  duration: 3.4 + i * 0.8,
+                  delay: i * 1.2,
+                  repeat: Infinity,
+                  ease: "easeOut",
+                }}
+              />
+            ))}
           </div>
 
           <h3 className="pixel-font text-xs sm:text-sm text-[var(--dq-purple)] mb-3 tracking-wider">

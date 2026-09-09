@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import PixelSprite from "./pixel/PixelSprite";
 import {
   slimeBoss,
+  slimeBossBlink,
   iconBox,
   iconChest,
   iconSparkle,
@@ -26,7 +27,7 @@ const statusConfig = {
   "not-encountered": { label: "???", badgeClass: "badge-unknown" },
 };
 
-/** Typewriter reveal — respects prefers-reduced-motion */
+/** Typewriter reveal — respects prefers-reduced-motion; click-to-skip supported */
 function useTypewriter(text: string, play: boolean, cps = 60) {
   const [n, setN] = useState(0);
   useEffect(() => {
@@ -49,7 +50,8 @@ function useTypewriter(text: string, play: boolean, cps = 60) {
     }, 1000 / cps);
     return () => window.clearInterval(id);
   }, [play, text, cps]);
-  return { shown: text.slice(0, n), done: n >= text.length };
+  const skip = useCallback(() => setN(text.length), [text]);
+  return { shown: text.slice(0, n), done: n >= text.length, skip };
 }
 
 export default function BossEncounter({ hackathon, index }: Props) {
@@ -60,7 +62,7 @@ export default function BossEncounter({ hackathon, index }: Props) {
   const inView = useInView(cardRef, { once: true, margin: "-80px" });
 
   // typewriter story
-  const { shown, done } = useTypewriter(hackathon.story, inView);
+  const { shown, done, skip } = useTypewriter(hackathon.story, inView);
 
   // animated HP counter
   const ratio = hackathon.hp / hackathon.maxHp;
@@ -104,12 +106,17 @@ export default function BossEncounter({ hackathon, index }: Props) {
           className="relative"
         >
           {sprite ? (
-            <PixelSprite
-              map={sprite}
-              scale={5}
-              label={hackathon.bossName}
-              className="drop-shadow-[0_0_14px_rgba(77,217,232,0.35)]"
-            />
+            <div className="slime-idle relative drop-shadow-[0_0_14px_rgba(77,217,232,0.35)]">
+              <PixelSprite map={sprite} scale={5} label={hackathon.bossName} />
+              {/* blink frame — overlays the transparent eye holes briefly */}
+              {sprite === slimeBoss && (
+                <PixelSprite
+                  map={slimeBossBlink}
+                  scale={5}
+                  className="slime-blink-frame absolute inset-0"
+                />
+              )}
+            </div>
           ) : (
             <span className="boss-emoji">{hackathon.bossEmoji}</span>
           )}
@@ -170,9 +177,13 @@ export default function BossEncounter({ hackathon, index }: Props) {
             </div>
           </div>
 
-          {/* story — typewriter dialogue */}
+          {/* story — typewriter dialogue (click to skip) */}
           <div className="mb-6 min-h-[96px]">
-            <p className="text-[var(--dq-text)] text-lg leading-relaxed">
+            <p
+              className="text-[var(--dq-text)] text-lg leading-relaxed cursor-pointer select-none"
+              onClick={skip}
+              title="Click to skip"
+            >
               {shown}
               {!done && inView && <span className="type-caret" aria-hidden="true" />}
             </p>

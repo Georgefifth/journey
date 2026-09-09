@@ -7,6 +7,8 @@ import TitleScreen from "../components/TitleScreen";
 import QuestMap from "../components/QuestMap";
 import BossEncounter from "../components/BossEncounter";
 import DemonKing from "../components/DemonKing";
+import SoundToggle from "../components/SoundToggle";
+import { playBlip } from "../lib/blip";
 
 export default function Home() {
   const [activeId, setActiveId] = useState<string | null>(
@@ -14,6 +16,7 @@ export default function Home() {
   );
 
   const handleSelect = (id: string) => {
+    playBlip("select");
     setActiveId(id);
     document.getElementById(id)?.scrollIntoView({
       behavior: "smooth",
@@ -22,6 +25,7 @@ export default function Home() {
   };
 
   const handleStart = () => {
+    playBlip("start");
     document.getElementById("world-map")?.scrollIntoView({
       behavior: "smooth",
       block: "start",
@@ -55,6 +59,9 @@ export default function Home() {
     <main className="journey-page">
       {/* ambient night sky */}
       <Starfield />
+
+      {/* 8-bit SFX toggle (HUD chip, bottom-right) */}
+      <SoundToggle />
 
       <div className="relative z-10">
         {/* Title screen */}
@@ -106,7 +113,7 @@ export default function Home() {
               ▶ GITHUB
             </a>
             <p className="pixel-font text-[7px] text-[var(--dq-muted)] mt-6 tracking-widest opacity-70">
-              © 2026 GEORGEFIFTH · THE BUILD LOG · VER.2.0
+              © 2026 GEORGEFIFTH · THE BUILD LOG · VER.2.2
             </p>
           </div>
         </footer>

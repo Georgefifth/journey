@@ -13,6 +13,7 @@ import {
   bush,
   pond,
   signpost,
+  moon,
 } from "./pixel/sprites";
 import type { Hackathon } from "../data/hackathons";
 import { demonKing } from "../data/hackathons";
@@ -98,6 +99,27 @@ function hillD(
   return d;
 }
 
+/** Two-frame pixel bird (wings down / wings up) */
+const birdDown = [".W...W.", "..W.W..", "...W..."];
+const birdUp = ["...W...", "..W.W..", ".W...W."];
+
+/** Chunky pixel cloud silhouette (procedural rects) */
+function cloudRects(seed: number, w: number) {
+  const rand = mulberry32(seed);
+  const rects: { x: number; y: number; w: number; h: number }[] = [];
+  // base slab
+  rects.push({ x: 0, y: 10, w, h: 6 });
+  // bumps on top
+  let x = 4;
+  while (x < w - 10) {
+    const bw = Math.round(10 + rand() * 18);
+    const bh = Math.round(5 + rand() * 7);
+    rects.push({ x, y: 10 - bh, w: bw, h: bh });
+    x += bw + Math.round(2 + rand() * 6);
+  }
+  return rects;
+}
+
 type Props = {
   hackathons: Hackathon[];
   activeId: string | null;
@@ -153,6 +175,13 @@ export default function QuestMap({ hackathons, activeId, onSelect }: Props) {
     key: `ms-${i}`,
   }));
 
+  // drifting clouds (deterministic shapes, CSS-driven drift)
+  const clouds = [
+    { seed: 11, w: 96, top: 46, dur: "64s", delay: "-9s", o: 0.72 },
+    { seed: 23, w: 64, top: 104, dur: "88s", delay: "-41s", o: 0.55 },
+    { seed: 37, w: 120, top: 74, dur: "74s", delay: "-63s", o: 0.64 },
+  ];
+
   const currentNode = nodes.find((n) => n.status === "in-battle");
 
   return (
@@ -178,9 +207,60 @@ export default function QuestMap({ hackathons, activeId, onSelect }: Props) {
             role="img"
             aria-label="Quest map: a winding road connects each hackathon castle to the demon king's tower"
           >
-            {/* map stars */}
+            <defs>
+              <radialGradient id="moonGlow">
+                <stop offset="0%" stopColor="#ffe9a8" stopOpacity="0.32" />
+                <stop offset="60%" stopColor="#ffe9a8" stopOpacity="0.10" />
+                <stop offset="100%" stopColor="#ffe9a8" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+
+            {/* map stars (bottom of the sky stack) */}
             {mapStars.map((s) => (
               <rect key={s.key} x={s.x} y={s.y} width={s.s} height={s.s} fill="var(--dq-cream)" opacity={s.o} />
+            ))}
+
+            {/* moon + halo */}
+            <circle cx={W - 74} cy={58} r={46} fill="url(#moonGlow)" />
+            <g transform={`translate(${W - 102} 30) scale(2.6)`} opacity={0.95}>
+              <PixelRects map={moon} />
+            </g>
+
+            {/* drifting clouds */}
+            {clouds.map((c) => {
+              const rects = cloudRects(c.seed, c.w);
+              return (
+                <g key={`cloud-${c.seed}`} transform={`translate(0 ${c.top})`} opacity={c.o}>
+                  <g className="map-cloud-drift" style={{ animationDuration: c.dur, animationDelay: c.delay }}>
+                    {rects.map((r, i) => (
+                      <rect key={i} x={r.x} y={r.y} width={r.w} height={r.h} fill="#222c52" />
+                    ))}
+                  </g>
+                </g>
+              );
+            })}
+
+            {/* night birds gliding across */}
+            {[
+              { y: 128, dur: 38, delay: 2 },
+              { y: 88, dur: 52, delay: 17 },
+            ].map((b, i) => (
+              <motion.g
+                key={`bird-${i}`}
+                animate={{ x: [-70, W + 70], y: [b.y, b.y - 10, b.y] }}
+                transition={{
+                  x: { duration: b.dur, delay: b.delay, repeat: Infinity, ease: "linear" },
+                  y: { duration: 2.6, repeat: Infinity, ease: "easeInOut" },
+                }}
+                opacity={0.7}
+              >
+                <g className="bird-flap-a">
+                  <PixelRects map={birdDown} />
+                </g>
+                <g className="bird-flap-b">
+                  <PixelRects map={birdUp} />
+                </g>
+              </motion.g>
             ))}
 
             {/* far hills */}
@@ -237,6 +317,17 @@ export default function QuestMap({ hackathons, activeId, onSelect }: Props) {
               <g transform="translate(560 330) scale(1.6)">
                 <PixelRects map={pond} />
               </g>
+              {/* pond shimmer (deterministic, above the water) */}
+              <rect x={564} y={333.5} width={7} height={1.8} fill="#a8f0f8" className="pond-shimmer" />
+              <rect
+                x={571}
+                y={335.4}
+                width={4.5}
+                height={1.8}
+                fill="#a8f0f8"
+                className="pond-shimmer"
+                style={{ animationDelay: "1.1s" }}
+              />
               <g transform="translate(384 344) scale(1.6)">
                 <PixelRects map={rock} />
               </g>
@@ -295,12 +386,31 @@ export default function QuestMap({ hackathons, activeId, onSelect }: Props) {
                     />
                   )}
 
-                  {/* sprite — base row anchored at n.y (inner g takes CSS hover transform) */}
+                  {/* sprite — base row anchored at n.y (inner g takes CSS hover transform;
+                      in-battle castles shudder in sync with the slash flash) */}
                   <g transform={`translate(${n.x - (16 * s) / 2} ${n.y - 16 * s}) scale(${s})`} opacity={isUnknown ? 0.6 : 1}>
-                    <g className="node-body">
+                    <g className={`node-body${isCurrent ? " castle-hit" : ""}`}>
                       <PixelRects map={sprite} />
                     </g>
                   </g>
+
+                  {/* demon tower windows breathing purple */}
+                  {n.isBoss && (
+                    <g>
+                      {[6, 9, 12].map((wy, i) => (
+                        <rect
+                          key={`win-${i}`}
+                          x={n.x - 6}
+                          y={n.y - 48 + wy * s}
+                          width={s}
+                          height={s}
+                          fill="#b07ce8"
+                          className="tower-window"
+                          style={{ animationDelay: `${i * 0.9}s` }}
+                        />
+                      ))}
+                    </g>
+                  )}
 
                   {/* status marks */}
                   {n.status === "victorious" && (
