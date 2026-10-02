@@ -64,6 +64,9 @@ export default function FaqPage() {
 
         <div className="pt-12 text-center">
           <Link href="/" className="cmd-link !bg-[var(--dq-gold)] !text-[var(--dq-blue)]">▶ VIEW BUILD LOG</Link>
+          <p className="mt-8 text-xl text-[var(--dq-muted)]">
+            Questions about a build? <a className="underline hover:text-[var(--dq-gold)]" href="mailto:georgefifth@mail.tin.computer">Email Georgefifth</a>.
+          </p>
         </div>
       </div>
     </main>
