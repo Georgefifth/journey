@@ -7,5 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {url: "https://georgefifth.xyz/oh-my-git-alternative", lastModified: "2026-10-02", changeFrequency: "yearly", priority: 0.6},
     {url: "https://georgefifth.xyz/learn-git-branching-alternative", lastModified: "2026-10-04", changeFrequency: "yearly", priority: 0.6},
     {url: "https://georgefifth.xyz/interactive-git-learning-game", lastModified: "2026-10-05", changeFrequency: "yearly", priority: 0.6},
+    {url: "https://georgefifth.xyz/terms", lastModified: "2026-10-02", changeFrequency: "yearly", priority: 0.2},
+    {url: "https://georgefifth.xyz/privacy", lastModified: "2026-10-02", changeFrequency: "yearly", priority: 0.2},
   ];
 }
