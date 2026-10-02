@@ -14,6 +14,7 @@ import { statusConfig, dateLabel, type Hackathon, type Build } from "../data/hac
 import Image from "next/image";
 import posthog from "posthog-js";
 import Link from "next/link";
+import GitQuestFeedback from "./GitQuestFeedback";
 
 type Props = {
   hackathon: Hackathon;
@@ -53,15 +54,24 @@ function useTypewriter(text: string, play: boolean, cps = 60) {
 
 export default function BossEncounter({ hackathon, index }: Props) {
   return <section id={hackathon.id} className="scroll-mt-8" aria-label={hackathon.eventName}>
-    {hackathon.builds.length ? hackathon.builds.map(build => <BuildEncounter key={build.id} quest={hackathon} build={build} level={index + 1}/>) : <article className="dq-box mb-10"><div className="dq-box-inner">
+    {hackathon.builds.length ? hackathon.builds.map(build => <BuildEncounter key={build.id} quest={hackathon} build={build} level={index + 1}/>) : <EmptyQuest hackathon={hackathon} />}
+  </section>;
+}
+
+function EmptyQuest({ hackathon }: { hackathon: Hackathon }) {
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true });
+  useEffect(() => {
+    if (inView) posthog.capture("quest_without_public_build_viewed", { quest_id: hackathon.id });
+  }, [inView, hackathon.id]);
+  return <article ref={ref} className="dq-box mb-10"><div className="dq-box-inner">
       <span className={`badge ${statusConfig[hackathon.status].badgeClass}`}>{statusConfig[hackathon.status].label}</span>
       <h2 className="pixel-font text-[11px] leading-relaxed mt-3 text-[var(--dq-gold)]">{hackathon.eventName}</h2>
       <p className="text-[var(--dq-muted)] mt-2">{dateLabel(hackathon)}</p>
       <p className="mt-3">Registered on Devpost. No public submitted build recorded.</p>
       <a className="cmd-link mt-4" href={hackathon.eventUrl} target="_blank" rel="noopener noreferrer">▶ QUEST DETAILS</a>
       <details className="mt-3 text-[var(--dq-muted)]"><summary>Save-file notes</summary><p>{hackathon.statusEvidence}</p></details>
-    </div></article>}
-  </section>;
+    </div></article>;
 }
 function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; level: number}) {
   const hackathon = {
@@ -242,7 +252,10 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
             <div className="flex flex-wrap gap-3 mb-6">
               <a href={build.devpostUrl} target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => posthog.capture("build_link_opened", { build_id: build.id, destination: "devpost" })}>▶ DEVPOST</a>
               {hackathon.demo && (
-                <a href={hackathon.demo} target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => posthog.capture("build_link_opened", { build_id: build.id, destination: "demo" })}>
+                <a href={hackathon.demo} target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => {
+                  posthog.capture("build_link_opened", { build_id: build.id, destination: "demo" });
+                  if (build.id === "gitquest") posthog.capture("gitquest_demo_opened", { build_id: build.id });
+                }}>
                   ▶ DEMO
                 </a>
               )}
@@ -256,6 +269,8 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
               )}
             </div>
           )}
+
+          {build.id === "gitquest" && <GitQuestFeedback />}
 
           {/* reward */}
           <div className="mb-6 pt-4 border-t border-[rgba(74,74,110,0.6)]">
