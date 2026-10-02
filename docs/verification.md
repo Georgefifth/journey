@@ -11,4 +11,5 @@
 - Reviewed 81 distinct outgoing URLs; 80 responded successfully after retries. AI Content Engine’s event URL returns HTTP 410 Gone, retained as provenance with an explicit unavailable-source note.
 - npm dependency audit: zero known vulnerabilities after a compatible Next patch update and PostCSS override. Existing Next 15 architecture retained.
 - Reduced-motion behavior reviewed in code: MotionConfig and explicit ambient animation branches, CSS animation suppression, non-smooth scrolling, instant dialogue/progress. An OS-level reduced-motion browser session was not simulated.
-- Both production domains are attached to the existing Vercel Journey project, with ownership verified. DNS still needs the exact records in deployment.md; apex HTTPS/www verification is pending DNS propagation.
+- Both production domains are attached to the existing Vercel Journey project, with ownership verified. After activating the registrar's default DNS service, Vercel confirms both configured correctly; all three topdns.com servers return the required apex addresses. Apex HTTPS/www verification is pending certificate issuance and resolver-cache updates.
+- Commit fbc2f44 was successfully pushed to the GitHub master branch after the user authenticated the correct account.
