@@ -27,7 +27,7 @@ The existing `spartan-c548/journey` project has both domains attached and owners
 
 Replace the old parking A records for these names. A CNAME must not coexist with another A/AAAA/CNAME record at `www`. Leave unrelated records intact. No TXT ownership challenge is currently required. Do not change nameservers as part of this record-based setup.
 
-After updating DNS, run `npx vercel domains verify georgefifth.xyz --scope spartan-c548` and the same command for `www.georgefifth.xyz`. Both now report configured-correctly. HTTPS and www redirect verification remain pending certificate issuance and resolver-cache updates.
+After updating DNS, run `npx vercel domains verify georgefifth.xyz --scope spartan-c548` and the same command for `www.georgefifth.xyz`. Both now report configured-correctly. Issued a Vercel-managed certificate for both domains with `npx vercel certs issue georgefifth.xyz www.georgefifth.xyz --scope spartan-c548`. HTTPS certificate validation and apex HTTP 200 succeeded against the assigned Vercel address. Configured the www project-domain redirect to `georgefifth.xyz` with status 308; `/og.png` verifies path preservation. OG, robots and sitemap return HTTP 200. Google public DNS returns the correct records; some other resolvers and the local browser still have stale parking answers.
 
 ## Portable static alternative
 
