@@ -5,7 +5,7 @@ import { isMuted, setMuted, playBlip } from "../lib/blip";
 
 /** Fixed bottom-right HUD chip: toggles the 8-bit SFX on/off. */
 export default function SoundToggle() {
-  const [on, setOn] = useState(true);
+  const [on, setOn] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

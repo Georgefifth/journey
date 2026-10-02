@@ -14,14 +14,16 @@ type Props = {
   battles: number;
   inBattle: number;
   victories: number;
+  pending: number;
+  builds: number;
   onStart: () => void;
 };
 
-export default function TitleScreen({ battles, inBattle, victories, onStart }: Props) {
+export default function TitleScreen({ battles, inBattle, victories, pending, builds, onStart }: Props) {
   return (
     <section className="relative z-10 px-6 pt-16 pb-12 text-center">
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
@@ -68,6 +70,7 @@ export default function TitleScreen({ battles, inBattle, victories, onStart }: P
           </div>
         </div>
 
+        <p className="text-[var(--dq-muted)] -mt-4 mb-7">BUILDS: <span className="text-[var(--dq-gold)]">{builds}</span> · AWAITING VERDICT: <span className="text-[var(--dq-purple)]">{pending}</span></p>
         {/* PRESS START */}
         <div className="mt-2">
           <button type="button" className="press-start" onClick={onStart}>

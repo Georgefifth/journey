@@ -1,25 +1,26 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { hackathons } from "../data/hackathons";
+import { hackathons, campaignStats } from "../data/hackathons";
 import Starfield from "../components/Starfield";
 import TitleScreen from "../components/TitleScreen";
 import QuestMap from "../components/QuestMap";
 import BossEncounter from "../components/BossEncounter";
 import DemonKing from "../components/DemonKing";
 import SoundToggle from "../components/SoundToggle";
+import { MotionConfig } from "framer-motion";
 import { playBlip } from "../lib/blip";
 
 export default function Home() {
   const [activeId, setActiveId] = useState<string | null>(
-    hackathons[0]?.id ?? null
+    hackathons.find(h => h.status === "IN_BATTLE" || h.status === "SUBMITTED")?.id ?? hackathons[0]?.id ?? null
   );
 
   const handleSelect = (id: string) => {
     playBlip("select");
     setActiveId(id);
     document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       block: "start",
     });
   };
@@ -27,7 +28,7 @@ export default function Home() {
   const handleStart = () => {
     playBlip("start");
     document.getElementById("world-map")?.scrollIntoView({
-      behavior: "smooth",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
       block: "start",
     });
   };
@@ -52,11 +53,8 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  const inBattle = hackathons.filter((h) => h.status === "in-battle").length;
-  const victories = hackathons.filter((h) => h.status === "victorious").length;
-
   return (
-    <main className="journey-page">
+    <MotionConfig reducedMotion="user"><main className="journey-page">
       {/* ambient night sky */}
       <Starfield />
 
@@ -64,11 +62,14 @@ export default function Home() {
       <SoundToggle />
 
       <div className="relative z-10">
+        <nav aria-label="Georgefifth links" className="identity-nav">
+          <span className="text-[var(--dq-gold)]">SAVE FILE: GEORGEFIFTH</span>
+          <a href="https://github.com/Georgefifth" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+          <a href="https://devpost.com/Georgefifth" target="_blank" rel="noopener noreferrer">DEVPOST ↗</a>
+        </nav>
         {/* Title screen */}
         <TitleScreen
-          battles={hackathons.length}
-          inBattle={inBattle}
-          victories={victories}
+          {...campaignStats}
           onStart={handleStart}
         />
 
@@ -102,7 +103,7 @@ export default function Home() {
         <footer className="max-w-4xl mx-auto px-6 pb-10 text-center">
           <div className="border-t-2 border-[rgba(74,74,110,0.55)] pt-6">
             <p className="text-[var(--dq-muted)] text-[16px] mb-4">
-              Built with Next.js + Framer Motion · Deployed on Vercel
+              Georgefifth’s campaign · source review: 2 Oct 2026
             </p>
             <a
               href="https://github.com/Georgefifth"
@@ -113,11 +114,11 @@ export default function Home() {
               ▶ GITHUB
             </a>
             <p className="pixel-font text-[7px] text-[var(--dq-muted)] mt-6 tracking-widest opacity-70">
-              © 2026 GEORGEFIFTH · THE BUILD LOG · VER.2.2
+              © 2026 GEORGEFIFTH · THE BUILD LOG · VER.3.0
             </p>
           </div>
         </footer>
       </div>
-    </main>
+    </main></MotionConfig>
   );
 }

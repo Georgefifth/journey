@@ -2,15 +2,16 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://journey-phi-bay.vercel.app"),
-  title: "The Build Log — A Hero's Hackathon Journey",
+  metadataBase: new URL("https://georgefifth.xyz"),
+  alternates: { canonical: "/" },
+  title: "The Build Log — Georgefifth's Hackathon Journey",
   description:
-    "A hero's journey through hackathon dungeons. What I built, what broke, what I learned.",
+    "A pixel-art RPG build log chronicling Georgefifth’s hackathon projects, experiments, victories, and ongoing battles.",
   openGraph: {
-    title: "The Build Log — A Hero's Hackathon Journey",
+    title: "The Build Log — Georgefifth's Hackathon Journey",
     description:
-      "A hero's journey through hackathon dungeons. What I built, what broke, what I learned.",
-    url: "https://journey-phi-bay.vercel.app",
+      "A pixel-art RPG build log chronicling Georgefifth’s hackathon projects, experiments, victories, and ongoing battles.",
+    url: "https://georgefifth.xyz",
     siteName: "The Build Log",
     images: [
       {
@@ -24,9 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Build Log — A Hero's Hackathon Journey",
+    title: "The Build Log — Georgefifth's Hackathon Journey",
     description:
-      "A hero's journey through hackathon dungeons. What I built, what broke, what I learned.",
+      "A pixel-art RPG build log chronicling Georgefifth’s hackathon projects, experiments, victories, and ongoing battles.",
     images: ["/og.png"],
   },
   icons: {

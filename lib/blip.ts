@@ -7,13 +7,13 @@
 type BlipKind = "start" | "select";
 
 let ctx: AudioContext | null = null;
-let muted = false;
+let muted = true;
 
 if (typeof window !== "undefined") {
   try {
-    muted = window.localStorage.getItem("blip-muted") === "1";
+    muted = window.localStorage.getItem("blip-muted") !== "0";
   } catch {
-    /* private mode — default to sound on */
+    /* private mode — default to sound off */
   }
 }
 

@@ -1,19 +1,20 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import PixelSprite from "./pixel/PixelSprite";
 import { demonTower } from "./pixel/sprites";
 import { demonKing } from "../data/hackathons";
 
 export default function DemonKing() {
+  const reduced = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0 }}
+      initial={false}
       animate={inView ? { opacity: 1 } : undefined}
       transition={{ duration: 0.8 }}
       className="dq-box mt-14"
@@ -21,7 +22,7 @@ export default function DemonKing() {
       {/* ominous shake on first appearance */}
       <motion.div
         animate={
-          inView
+          inView && !reduced
             ? { x: [0, -5, 5, -3, 3, 0] }
             : undefined
         }
@@ -54,7 +55,7 @@ export default function DemonKing() {
                 aria-hidden="true"
                 className="mist-particle absolute"
                 style={{ left: `${26 + i * 22}%`, bottom: 0 }}
-                animate={{ y: [8, -44], opacity: [0, 0.55, 0] }}
+                animate={reduced ? {opacity:0} : { y: [8, -44], opacity: [0, 0.55, 0] }}
                 transition={{
                   duration: 3.4 + i * 0.8,
                   delay: i * 1.2,

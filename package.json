@@ -5,7 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "validate:data": "node scripts/validate-data.mjs",
+    "sync:devpost": "node scripts/sync-devpost.mjs",
+    "generate:og": "node scripts/generate-og.mjs",
+    "typecheck": "tsc --noEmit",
+    "export:static": "node scripts/export-static.mjs"
   },
   "dependencies": {
     "framer-motion": "^11.3.0",
@@ -19,6 +24,12 @@
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.6",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "sharp": "^0.35.4"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "^8.5.23"
+    }
   }
 }

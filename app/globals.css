@@ -515,3 +515,26 @@ body {
 .sfx-toggle[aria-pressed="true"] {
   color: var(--dq-gold);
 }
+
+/* Campaign expansion: retain the DQ frames and original pixel scenery. */
+.identity-nav { display:flex; flex-wrap:wrap; gap:12px 24px; justify-content:center; padding:24px 16px 0; font-size:16px; }
+.identity-nav a:hover { color:var(--dq-gold); }
+.map-controls { display:flex; align-items:center; gap:12px; }
+.map-controls select { display:block; background:var(--dq-panel); color:var(--dq-cream); border:2px solid var(--dq-border); padding:6px; width:100%; font-family:inherit; font-size:18px; }
+.map-controls button:disabled { opacity:.4; cursor:default; }
+.badge-pending { color:var(--dq-gold); border-color:var(--dq-purple); }
+.badge-complete { color:#4dd9e8; border-color:#4dd9e8; }
+.quest-index-link { width:100%; text-align:left; padding:10px; border-left:2px solid var(--dq-border); }
+.quest-index-link span { display:block; }
+.quest-index-link:hover { border-color:var(--dq-gold); background:var(--dq-panel); }
+.build-thumbnail { width:100%; height:auto; max-height:300px; object-fit:contain; background:var(--night-0); border:2px solid var(--dq-border); }
+.dialogue-story { min-height:96px; }
+article, h2, h3 { overflow-wrap:anywhere; }
+:focus-visible { outline:3px solid var(--dq-gold); outline-offset:5px; }
+.map-node:focus-visible { outline:none; filter:drop-shadow(0 0 6px var(--dq-gold)); }
+@media (max-width:480px) { .map-controls { gap:8px; flex-wrap:wrap; } .map-controls label { order:-1; flex-basis:100%; } .map-controls button { flex:1; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; }
+  *, *::before, *::after { animation:none !important; transition:none !important; }
+  .bird-flap-b, .shooting-star, .mist-particle { display:none; }
+}
