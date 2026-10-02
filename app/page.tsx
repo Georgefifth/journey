@@ -10,6 +10,7 @@ import DemonKing from "../components/DemonKing";
 import SoundToggle from "../components/SoundToggle";
 import { MotionConfig } from "framer-motion";
 import { playBlip } from "../lib/blip";
+import Link from "next/link";
 
 export default function Home() {
   const [activeId, setActiveId] = useState<string | null>(
@@ -66,6 +67,7 @@ export default function Home() {
           <span className="text-[var(--dq-gold)]">SAVE FILE: GEORGEFIFTH</span>
           <a href="https://github.com/Georgefifth" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
           <a href="https://devpost.com/Georgefifth" target="_blank" rel="noopener noreferrer">DEVPOST ↗</a>
+          <Link href="/faq">ABOUT ↗</Link>
         </nav>
         {/* Title screen */}
         <TitleScreen
