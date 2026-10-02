@@ -40,6 +40,7 @@ export default function TitleScreen({ battles, inBattle, victories, pending, bui
         {/* Title */}
         <h1 className="pixel-font pixel-title text-2xl sm:text-3xl md:text-4xl mt-6 mb-5 leading-relaxed flicker">
           THE BUILD LOG
+          <span className="hero-byline">GEORGE FIFTH</span>
         </h1>
 
         {/* Subtitles */}
@@ -47,7 +48,7 @@ export default function TitleScreen({ battles, inBattle, victories, pending, bui
           A hero&rsquo;s journey through hackathon dungeons
         </p>
         <p className="text-[var(--dq-muted)] text-lg mb-8">
-          What I built. What broke. What I learned.
+          George Fifth&apos;s build log. What I built. What broke. What I learned.
         </p>
 
         {/* Save-file stats card */}

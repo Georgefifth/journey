@@ -4,13 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://georgefifth.xyz"),
   alternates: { canonical: "/" },
-  title: "The Build Log — Georgefifth's Hackathon Journey",
+  title: "George Fifth (Georgefifth) | The Build Log",
   description:
-    "A pixel-art RPG build log chronicling Georgefifth’s hackathon projects, experiments, victories, and ongoing battles.",
+    "George Fifth's public build log of hackathon projects, experiments, victories, and lessons learned, told as a pixel-art RPG.",
   openGraph: {
-    title: "The Build Log — Georgefifth's Hackathon Journey",
+    title: "George Fifth (Georgefifth) | The Build Log",
     description:
-      "A pixel-art RPG build log chronicling Georgefifth’s hackathon projects, experiments, victories, and ongoing battles.",
+      "George Fifth's public build log of hackathon projects, experiments, victories, and lessons learned, told as a pixel-art RPG.",
     url: "https://georgefifth.xyz",
     siteName: "The Build Log",
     images: [
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Build Log — Georgefifth's Hackathon Journey",
+    title: "George Fifth (Georgefifth) | The Build Log",
     description:
-      "A pixel-art RPG build log chronicling Georgefifth’s hackathon projects, experiments, victories, and ongoing battles.",
+      "George Fifth's public build log of hackathon projects, experiments, victories, and lessons learned, told as a pixel-art RPG.",
     images: ["/og.png"],
   },
   icons: {
