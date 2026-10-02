@@ -41,6 +41,30 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://georgefifth.xyz/#creator",
+      name: "George Fifth",
+      alternateName: "Georgefifth",
+      url: "https://georgefifth.xyz/",
+      sameAs: [
+        "https://github.com/Georgefifth",
+        "https://devpost.com/Georgefifth",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://georgefifth.xyz/#website",
+      name: "The Build Log",
+      url: "https://georgefifth.xyz/",
+      creator: { "@id": "https://georgefifth.xyz/#creator" },
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,6 +73,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
