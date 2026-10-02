@@ -272,6 +272,19 @@ body {
   transform: translate(3px, 3px);
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
+.feedback-choice, .feedback-send {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 2px solid var(--dq-border);
+  background: var(--dq-panel);
+  color: var(--dq-cream);
+  cursor: pointer;
+}
+.feedback-choice:hover, .feedback-choice-selected { border-color: var(--dq-gold); color: var(--dq-gold); }
+.feedback-comment { padding: 8px; border: 2px solid var(--dq-border); background: var(--night-0); color: var(--dq-cream); resize: vertical; }
+.feedback-comment:focus { border-color: var(--dq-gold); }
+.feedback-send { font-family: "Press Start 2P", monospace; font-size: 9px; border-color: var(--dq-gold); color: var(--dq-gold); }
+.feedback-send:hover { background: var(--dq-gold); color: var(--dq-blue); }
 
 /* --- PRESS START ------------------------------------------------ */
 .press-start {
