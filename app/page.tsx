@@ -11,6 +11,7 @@ import SoundToggle from "../components/SoundToggle";
 import { MotionConfig } from "framer-motion";
 import { playBlip } from "../lib/blip";
 import Link from "next/link";
+import posthog from "posthog-js";
 
 export default function Home() {
   const [activeId, setActiveId] = useState<string | null>(
@@ -18,6 +19,7 @@ export default function Home() {
   );
 
   const handleSelect = (id: string) => {
+    posthog.capture("quest_selected", { quest_id: id });
     playBlip("select");
     setActiveId(id);
     document.getElementById(id)?.scrollIntoView({
@@ -27,6 +29,7 @@ export default function Home() {
   };
 
   const handleStart = () => {
+    posthog.capture("journey_started");
     playBlip("start");
     document.getElementById("world-map")?.scrollIntoView({
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
