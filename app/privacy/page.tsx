@@ -13,12 +13,13 @@ export default function PrivacyPage() {
     intro="What this site records when you visit and explore the build log."
     sections={[
       { heading: "What you choose to share", paragraphs: [
-        "You can browse without an account. The site has no signup, checkout, or visitor form. If you email Georgefifth, your message and address reach the site's managed mailbox so Georgefifth can respond.",
+        "You can browse without an account. The site has no signup or checkout. If you email Georgefifth, your message and address reach the site's managed mailbox so Georgefifth can respond.",
+        "The GitQuest build card has an optional feedback form. If you send a rating or note, PostHog receives that choice and any text you enter. Please do not include personal details in a note.",
         "The optional sound setting stays in your browser's local storage. It is not sent to the site as a preference.",
       ] },
       { heading: "Site analytics", paragraphs: [
-        "The site uses PostHog to count pageviews and selected actions, including starting the journey, choosing a quest, and opening a build link. Build-link events include a build ID and link type.",
-        "PostHog receives an anonymous visitor ID and technical visit details, such as page address, referrer, browser, and device information. Its browser software uses cookies and local storage to keep that ID across visits. The site does not send your name or email to PostHog, create visitor profiles, record sessions, or capture every click.",
+        "The site uses PostHog to count pageviews and selected actions, including starting the journey, choosing a quest, opening a build link, and sending GitQuest feedback. Build-link events include a build ID and link type. It also records browser errors and repeated clicks that may show a stuck control.",
+        "PostHog receives an anonymous visitor ID and technical visit details, such as page address, referrer, browser, and device information. Its browser software uses cookies and local storage to keep that ID across visits. The site does not create visitor profiles, record sessions, or capture every click. Feedback text may contain details you choose to share.",
         "Georgefifth uses these counts to understand which parts of the build log people use. PostHog processes this analytics data in its US-hosted service.",
       ] },
       { heading: "Other services", paragraphs: [
