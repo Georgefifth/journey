@@ -113,8 +113,13 @@ export default function Home() {
             >
               ▶ GITHUB
             </a>
-            <p className="pixel-font text-[7px] text-[var(--dq-muted)] mt-6 tracking-widest opacity-70">
+            <p className="pixel-font text-[7px] text-[var(--dq-muted)] mt-6 tracking-widest opacity-70 leading-relaxed">
               © 2026 GEORGEFIFTH · THE BUILD LOG · VER.3.0
+              <span className="footer-credit-separator" aria-hidden="true"> · </span>
+              <a href="https://tin.computer" className="footer-credit">
+                <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#66DC9D" /></svg>
+                Growth by Tin
+              </a>
             </p>
           </div>
         </footer>
