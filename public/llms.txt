@@ -1,0 +1,14 @@
+# The Build Log
+
+> George Fifth's public record of hackathon events, projects, demos, and source links. The site presents this work as a pixel-art RPG.
+
+The site is a personal build journal. It does not offer accounts, subscriptions, or a paid product.
+Project descriptions and event results reflect the linked public records. Follow each project's source link for current details.
+
+## Main page
+
+- [The Build Log](https://georgefifth.xyz/): Browse hackathon events, build notes, project demos, and source links.
+
+## Discovery
+
+- [Sitemap](https://georgefifth.xyz/sitemap.xml): Current public page list.
