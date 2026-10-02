@@ -12,6 +12,7 @@ import {
 } from "./pixel/sprites";
 import { statusConfig, dateLabel, type Hackathon, type Build } from "../data/hackathons";
 import Image from "next/image";
+import posthog from "posthog-js";
 
 type Props = {
   hackathon: Hackathon;
@@ -238,14 +239,14 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
           {/* commands */}
           {(
             <div className="flex flex-wrap gap-3 mb-6">
-              <a href={build.devpostUrl} target="_blank" rel="noopener noreferrer" className="cmd-link">▶ DEVPOST</a>
+              <a href={build.devpostUrl} target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => posthog.capture("build_link_opened", { build_id: build.id, destination: "devpost" })}>▶ DEVPOST</a>
               {hackathon.demo && (
-                <a href={hackathon.demo} target="_blank" rel="noopener noreferrer" className="cmd-link">
+                <a href={hackathon.demo} target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => posthog.capture("build_link_opened", { build_id: build.id, destination: "demo" })}>
                   ▶ DEMO
                 </a>
               )}
               {hackathon.repo && (
-                <a href={hackathon.repo} target="_blank" rel="noopener noreferrer" className="cmd-link">
+                <a href={hackathon.repo} target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => posthog.capture("build_link_opened", { build_id: build.id, destination: "github" })}>
                   ▶ REPO
                 </a>
               )}
