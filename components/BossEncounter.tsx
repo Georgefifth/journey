@@ -13,6 +13,7 @@ import {
 import { statusConfig, dateLabel, type Hackathon, type Build } from "../data/hackathons";
 import Image from "next/image";
 import posthog from "posthog-js";
+import Link from "next/link";
 
 type Props = {
   hackathon: Hackathon;
@@ -249,6 +250,9 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
                 <a href={hackathon.repo} target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => posthog.capture("build_link_opened", { build_id: build.id, destination: "github" })}>
                   ▶ REPO
                 </a>
+              )}
+              {build.id === "gitquest" && (
+                <Link href="/oh-my-git-alternative" className="cmd-link">▶ COMPARE GIT GAMES</Link>
               )}
             </div>
           )}
