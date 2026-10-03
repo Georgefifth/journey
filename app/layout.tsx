@@ -4,13 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://georgefifth.xyz"),
   alternates: { canonical: "/" },
-  title: "George Fifth (Georgefifth) | The Build Log",
+  title: "The Build Log: public build history for hackathon developers",
   description:
-    "George Fifth's public build log of hackathon projects, experiments, victories, and lessons learned, told as a pixel-art RPG.",
+    "Explore George Fifth's public build history, hackathon projects, and source links. Try GitQuest, his interactive Git learning game for beginners.",
   openGraph: {
-    title: "George Fifth (Georgefifth) | The Build Log",
+    title: "The Build Log: public build history for hackathon developers",
     description:
-      "George Fifth's public build log of hackathon projects, experiments, victories, and lessons learned, told as a pixel-art RPG.",
+      "Explore George Fifth's public build history, hackathon projects, and source links. Try GitQuest, his interactive Git learning game for beginners.",
     url: "https://georgefifth.xyz",
     siteName: "The Build Log",
     images: [
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "George Fifth (Georgefifth) | The Build Log",
+    title: "The Build Log: public build history for hackathon developers",
     description:
-      "George Fifth's public build log of hackathon projects, experiments, victories, and lessons learned, told as a pixel-art RPG.",
+      "Explore George Fifth's public build history, hackathon projects, and source links. Try GitQuest, his interactive Git learning game for beginners.",
     images: ["/og.png"],
   },
   icons: {
@@ -61,6 +61,21 @@ const structuredData = {
       name: "The Build Log",
       url: "https://georgefifth.xyz/",
       creator: { "@id": "https://georgefifth.xyz/#creator" },
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://georgefifth.xyz/#firstcommit-gitquest",
+      name: "GitQuest: interactive Git learning game for beginners",
+      description:
+        "George Fifth's browser-based Git practice game. Type Git commands through 11 levels and watch the commit graph change.",
+      url: "https://georgefifth.xyz/#firstcommit-gitquest",
+      creator: { "@id": "https://georgefifth.xyz/#creator" },
+      isPartOf: { "@id": "https://georgefifth.xyz/#website" },
+      sameAs: [
+        "https://georgefifth.github.io/gitquest/",
+        "https://github.com/Georgefifth/gitquest",
+        "https://devpost.com/software/gitquest",
+      ],
     },
   ],
 };
