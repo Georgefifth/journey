@@ -93,6 +93,7 @@ export default function OhMyGitAlternative() {
           <p className="pixel-font text-[9px] leading-relaxed text-[var(--dq-gold)]">FOLLOW THE SOURCE</p>
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-xl">
             <Link href="/#firstcommit-gitquest" className="underline hover:text-[var(--dq-gold)]">GitQuest build log</Link>
+            <a href="https://georgefifth.github.io/gitquest/" className="underline hover:text-[var(--dq-gold)]">GitQuest demo</a>
             <a href="https://devpost.com/software/gitquest" className="underline hover:text-[var(--dq-gold)]">Devpost entry</a>
             <a href="https://github.com/Georgefifth/gitquest" className="underline hover:text-[var(--dq-gold)]">GitQuest source</a>
             <a href="https://ohmygit.org/" className="underline hover:text-[var(--dq-gold)]">Oh My Git! official site</a>
