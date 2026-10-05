@@ -266,6 +266,7 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
               )}
               {build.id === "gitquest" && (
                 <>
+                  <Link href="/interactive-git-learning-game" className="cmd-link">▶ INTERACTIVE GIT GAME</Link>
                   <Link href="/oh-my-git-alternative" className="cmd-link">▶ OH MY GIT! GUIDE</Link>
                   <Link href="/learn-git-branching-alternative" className="cmd-link">▶ LEARN GIT BRANCHING GUIDE</Link>
                 </>
