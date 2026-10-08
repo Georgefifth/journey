@@ -15,7 +15,11 @@ export default function QuestMap({hackathons, activeId, onSelect}: Props) {
   }
   const initial = Math.max(0, regions.findIndex(r => r.some(h => h.status === "IN_BATTLE" || h.status === "SUBMITTED")));
   const [region, setRegion] = useState(initial);
+  const [query, setQuery] = useState("");
   const current = regions[region] ?? [];
+  const matchingHackathons = hackathons.filter(h =>
+    `${h.eventName} ${h.builds.map(build => build.projectName).join(" ")}`.toLowerCase().includes(query.trim().toLowerCase())
+  );
   return <div>
     <p className="text-center text-[var(--dq-muted)] mb-4">{hackathons.length} quest stops · ordered by submission deadline · dates in Malaysia time</p>
     <nav aria-label="Campaign regions" className="map-controls mb-5">
@@ -33,11 +37,23 @@ export default function QuestMap({hackathons, activeId, onSelect}: Props) {
     </div>
     <details className="campaign-index mt-6">
       <summary className="cmd-link">▶ QUEST INDEX — ALL {hackathons.length} STOPS</summary>
+      <input
+        type="search"
+        className="quest-index-search"
+        aria-label="Find a quest or build"
+        placeholder="FIND BUILD"
+        value={query}
+        onChange={event => setQuery(event.target.value)}
+      />
       <ol className="mt-4 grid sm:grid-cols-2 gap-2">
-        {hackathons.map(h => <li key={h.id}><button className="quest-index-link" onClick={() => {setRegion(regions.findIndex(r => r.some(q => q.id === h.id))); onSelect(h.id);}}>
+        {matchingHackathons.map(h => <li key={h.id}><button className="quest-index-link" onClick={() => {setRegion(regions.findIndex(r => r.some(q => q.id === h.id))); onSelect(h.id);}}>
           <span>{h.eventName}</span><span className="text-[var(--dq-muted)]">{dateLabel(h)} · {statusConfig[h.status].label}</span>
+          {query.trim() && h.builds.filter(build => build.projectName.toLowerCase().includes(query.trim().toLowerCase())).map(build =>
+            <span key={build.id} className="text-[var(--dq-gold)]">{build.projectName}</span>
+          )}
         </button></li>)}
       </ol>
+      {matchingHackathons.length === 0 && <p className="mt-4 text-[var(--dq-muted)]">No matching quests.</p>}
     </details>
   </div>;
 }
