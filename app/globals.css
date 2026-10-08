@@ -561,6 +561,9 @@ body {
 .badge-pending { color:var(--dq-gold); border-color:var(--dq-purple); }
 .badge-complete { color:#4dd9e8; border-color:#4dd9e8; }
 .quest-index-link { width:100%; text-align:left; padding:10px; border-left:2px solid var(--dq-border); }
+.quest-index-search { display:block; width:100%; margin-top:16px; padding:8px 10px; color:var(--dq-cream); background:var(--dq-panel); border:2px solid var(--dq-border); font-family:inherit; font-size:18px; }
+.quest-index-search::placeholder { color:var(--dq-muted); }
+.quest-index-search:focus-visible { border-color:var(--dq-gold); }
 .quest-index-link span { display:block; }
 .quest-index-link:hover { border-color:var(--dq-gold); background:var(--dq-panel); }
 .build-thumbnail { width:100%; height:auto; max-height:300px; object-fit:contain; background:var(--night-0); border:2px solid var(--dq-border); }
