@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: "About George Fifth | The Build Log",
   description: "Who George Fifth is and what you can find in The Build Log.",
   alternates: { canonical: "/faq" },
+  openGraph: {
+    title: "About George Fifth | The Build Log",
+    url: "/faq",
+    siteName: "The Build Log",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "The Build Log — a pixel hero stands between a castle and the demon king's tower" }],
+    type: "website",
+  },
 };
 
 const questions = [

@@ -6,6 +6,13 @@ export const metadata: Metadata = {
   title: "GitQuest and Oh My Git! | A guide to two Git games",
   description: "Compare George Fifth's browser GitQuest demo with the desktop Oh My Git! game. See how each starts, then try the one that fits your goal.",
   alternates: { canonical: "/oh-my-git-alternative" },
+  openGraph: {
+    title: "GitQuest and Oh My Git! | A guide to two Git games",
+    url: "/oh-my-git-alternative",
+    siteName: "The Build Log",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "The Build Log — a pixel hero stands between a castle and the demon king's tower" }],
+    type: "website",
+  },
 };
 
 const rows = [
