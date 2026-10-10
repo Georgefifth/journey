@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   description:
     "Compare Learn Git Branching's browser lessons and sandbox with George Fifth's 11-level GitQuest demo. See the scope of each, then choose where to practice Git.",
   alternates: { canonical: "/learn-git-branching-alternative" },
+  openGraph: {
+    title: "Learn Git Branching alternative? Try the GitQuest demo",
+    url: "/learn-git-branching-alternative",
+    siteName: "The Build Log",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "The Build Log — a pixel hero stands between a castle and the demon king's tower" }],
+    type: "website",
+  },
 };
 
 const comparisons = [

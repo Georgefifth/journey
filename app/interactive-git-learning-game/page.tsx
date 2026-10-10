@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   description:
     "Practice Git commands in an 11-level browser game. See your repository change as you type, then try branches, merges, and a sandbox in GitQuest.",
   alternates: { canonical: "/interactive-git-learning-game" },
+  openGraph: {
+    title: "Interactive Git learning game: try GitQuest in your browser",
+    url: "/interactive-git-learning-game",
+    siteName: "The Build Log",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "The Build Log — a pixel hero stands between a castle and the demon king's tower" }],
+    type: "website",
+  },
 };
 
 const steps = [
