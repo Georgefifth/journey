@@ -48,7 +48,7 @@ export default function QuestMap({hackathons, activeId, onSelect}: Props) {
       <ol className="mt-4 grid sm:grid-cols-2 gap-2">
         {matchingHackathons.map(h => <li key={h.id}><button className="quest-index-link" onClick={() => {setRegion(regions.findIndex(r => r.some(q => q.id === h.id))); onSelect(h.id);}}>
           <span>{h.eventName}</span><span className="text-[var(--dq-muted)]">{dateLabel(h)} · {statusConfig[h.status].label}</span>
-          {query.trim() && h.builds.filter(build => build.projectName.toLowerCase().includes(query.trim().toLowerCase())).map(build =>
+          {h.builds.map(build =>
             <span key={build.id} className="text-[var(--dq-gold)]">{build.projectName}</span>
           )}
         </button></li>)}
