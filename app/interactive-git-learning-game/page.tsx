@@ -136,6 +136,7 @@ export default function InteractiveGitLearningGame() {
           <p className="pixel-font text-[9px] leading-relaxed text-[var(--dq-gold)]">FOLLOW THE SOURCE</p>
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-xl">
             <Link href="/#firstcommit-gitquest" className="underline hover:text-[var(--dq-gold)]">GitQuest build log</Link>
+            <Link href="/git-merge-conflict-practice" className="underline hover:text-[var(--dq-gold)]">Git merge conflict practice</Link>
             <a href="https://georgefifth.github.io/gitquest/" className="underline hover:text-[var(--dq-gold)]">GitQuest demo</a>
             <a href="https://devpost.com/software/gitquest" className="underline hover:text-[var(--dq-gold)]">Devpost entry</a>
             <a href="https://github.com/Georgefifth/gitquest" className="underline hover:text-[var(--dq-gold)]">GitQuest source</a>
