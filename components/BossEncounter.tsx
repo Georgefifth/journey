@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { motion, useInView, animate, useReducedMotion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import PixelSprite from "./pixel/PixelSprite";
 import {
   slimeBoss,
@@ -93,25 +93,9 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
   // typewriter story
   const { shown, done, skip } = useTypewriter(hackathon.story, inView);
 
-  // animated HP counter
+  // Keep the status value consistent before the card enters the viewport.
   const segCount = 10;
-  const [dispHp, setDispHp] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      const t = window.setTimeout(() => setDispHp(hackathon.hp), 0);
-      return () => window.clearTimeout(t);
-    }
-    const controls = animate(0, hackathon.hp, {
-      duration: 1.3,
-      delay: 0.35,
-      ease: "easeOut",
-      onUpdate: (v) => setDispHp(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [inView, hackathon.hp]);
-
+  const dispHp = hackathon.hp;
   const litRatio = dispHp / hackathon.maxHp;
   const hpTone = litRatio > 0.6 ? "hp-high" : litRatio > 0.3 ? "hp-mid" : "hp-low";
   const lit = Math.round(litRatio * segCount);
