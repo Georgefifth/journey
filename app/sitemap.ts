@@ -9,5 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {url: "https://georgefifth.xyz/interactive-git-learning-game", lastModified: "2026-10-05", changeFrequency: "yearly", priority: 0.6},
     {url: "https://georgefifth.xyz/git-first-commit-practice", lastModified: "2026-10-12", changeFrequency: "yearly", priority: 0.6},
     {url: "https://georgefifth.xyz/git-merge-conflict-practice", lastModified: "2026-10-19", changeFrequency: "yearly", priority: 0.6},
+    {url: "https://georgefifth.xyz/git-branching-practice", lastModified: "2026-10-24", changeFrequency: "yearly", priority: 0.6},
   ];
 }
