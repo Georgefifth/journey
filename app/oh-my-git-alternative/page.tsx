@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "GitQuest and Oh My Git! | A guide to two Git games",
-  description: "Compare George Fifth's browser GitQuest demo with the desktop Oh My Git! game. See how each starts, then try the one that fits your goal.",
+  title: "Oh My Git! alternative: try GitQuest in your browser",
+  description: "Looking for an Oh My Git! alternative? Compare GitQuest's 11 browser challenges with Oh My Git!'s downloadable game and choose how you want to practise.",
   alternates: { canonical: "/oh-my-git-alternative" },
   openGraph: {
-    title: "GitQuest and Oh My Git! | A guide to two Git games",
+    title: "Oh My Git! alternative: try GitQuest in your browser",
     url: "/oh-my-git-alternative",
     siteName: "The Build Log",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "The Build Log — a pixel hero stands between a castle and the demon king's tower" }],
@@ -46,13 +46,13 @@ export default function OhMyGitAlternative() {
           <div>
             <p className="section-label">PICK YOUR GIT QUEST</p>
             <h1 className="pixel-font pixel-title mt-7 text-lg leading-[1.8] sm:text-2xl">
-              GITQUEST AND OH MY GIT!
+              AN OH MY GIT! ALTERNATIVE?
             </h1>
             <p className="mt-5 max-w-[58ch] text-2xl leading-snug text-[var(--dq-cream)]">
-              Two games teach Git by letting you see what your commands do.
+              Try GitQuest if you want to practise Git in your browser.
             </p>
             <p className="mt-3 max-w-[58ch] text-xl leading-relaxed text-[var(--dq-text)]">
-              Choose GitQuest for a browser terminal challenge. Choose Oh My Git! for a downloadable game with command cards.
+              Type commands through 11 linked challenges. Choose Oh My Git! for a downloadable game with command cards and remote lessons.
             </p>
             <a className="cmd-link mt-7 !bg-[var(--dq-gold)] !text-[var(--dq-blue)]" href="https://georgefifth.github.io/gitquest/" target="_blank" rel="noopener noreferrer">
               ▶ PLAY GITQUEST
@@ -92,7 +92,7 @@ export default function OhMyGitAlternative() {
 
         <section className="mx-auto mt-14 max-w-2xl">
           <h2 className="pixel-font text-[11px] leading-relaxed text-[var(--dq-gold)] sm:text-sm">WHICH ONE FITS?</h2>
-          <p className="mt-5 text-xl leading-relaxed">GitQuest suits a quick browser session built around typing commands. Oh My Git! suits someone who wants a desktop game with visual command cards and an integrated terminal. Both let you watch Git change as you play.</p>
+          <p className="mt-5 text-xl leading-relaxed">GitQuest is a useful Oh My Git! alternative when you want to start in a browser and practise by typing commands. Choose Oh My Git! when you want downloadable play, visual command cards, and a focus on working with remotes.</p>
           <p className="mt-5 text-lg text-[var(--dq-muted)]">This is a guide to two public games. It does not claim they cover the same lessons or features.</p>
         </section>
 
