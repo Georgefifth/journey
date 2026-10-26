@@ -3,12 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Learn Git Branching alternative? Try the GitQuest demo",
+  title: "Learn Git Branching alternative: GitQuest compared",
   description:
-    "Compare Learn Git Branching's browser lessons and sandbox with George Fifth's 11-level GitQuest demo. See the scope of each, then choose where to practice Git.",
+    "GitQuest vs Learn Git Branching: compare the 11-level story game with broader visual lessons. Pick a guided first path or explore Git topics in a sandbox.",
   alternates: { canonical: "/learn-git-branching-alternative" },
   openGraph: {
-    title: "Learn Git Branching alternative? Try the GitQuest demo",
+    title: "Learn Git Branching alternative: GitQuest compared",
     url: "/learn-git-branching-alternative",
     siteName: "The Build Log",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "The Build Log — a pixel hero stands between a castle and the demon king's tower" }],
@@ -18,19 +18,19 @@ export const metadata: Metadata = {
 
 const comparisons = [
   {
-    label: "First step",
-    gitquest: "Start a story-driven level with git init. Later levels unlock in order.",
-    learn: "Choose a lesson from the Main or Remote tracks, or start in the sandbox.",
+    label: "Starting point",
+    gitquest: "Begin with git init, then unlock the next story level by finishing the one before it.",
+    learn: "Pick a level in the Main or Remote tracks. You can also open a sandbox repo.",
   },
   {
-    label: "Practice",
-    gitquest: "Type commands in a game terminal. Watch your repo and commit graph respond.",
-    learn: "Type commands in a simulated repo. Watch the commit tree change beside them.",
+    label: "How you win",
+    gitquest: "Type commands until your commit graph matches a target. The game checks the result, not one exact command list.",
+    learn: "Solve visual Git challenges and watch the commit tree change as you type commands.",
   },
   {
-    label: "Scope",
-    gitquest: "An 11-level demo that starts with setup, then reaches branches, merges, and a simulated remote.",
-    learn: "Several lesson groups cover local and remote Git, with later challenges and a freeform sandbox.",
+    label: "Where it goes",
+    gitquest: "11 story levels move from the first commit through branches, merges, conflicts, rebases, and a simulated push.",
+    learn: "More lesson groups cover local and remote Git, with later challenges and a freeform sandbox.",
   },
 ];
 
@@ -50,10 +50,10 @@ export default function LearnGitBranchingAlternative() {
               GITQUEST OR LEARN GIT BRANCHING?
             </h1>
             <p className="mt-5 max-w-[58ch] text-2xl leading-snug text-[var(--dq-cream)]">
-              Two browser games let you see Git change as you type.
+              Want a short Git story or a larger lesson map?
             </p>
             <p className="mt-3 max-w-[58ch] text-xl leading-relaxed text-[var(--dq-text)]">
-              GitQuest offers a short story path. Learn Git Branching offers more lesson groups and a sandbox.
+              Start with GitQuest for 11 linked challenges. Choose Learn Git Branching to pick from more visual lessons.
             </p>
             <a
               className="cmd-link mt-7 !bg-[var(--dq-gold)] !text-[var(--dq-blue)]"
@@ -87,13 +87,13 @@ export default function LearnGitBranchingAlternative() {
               <div className="border border-[var(--dq-border)] bg-[var(--night-0)] p-5">
                 <h3 className="pixel-font text-[10px] leading-relaxed text-[var(--dq-gold)]">GITQUEST</h3>
                 <p className="mt-3 text-xl leading-relaxed">
-                  George Fifth&apos;s browser demo. Follow 11 levels in order, or open sandbox mode.
+                  George Fifth&apos;s browser game. Match a target commit graph across 11 linked levels, or open sandbox mode.
                 </p>
               </div>
               <div className="border border-[var(--dq-border)] bg-[var(--night-0)] p-5">
                 <h3 className="pixel-font text-[10px] leading-relaxed text-[var(--dq-cream)]">LEARN GIT BRANCHING</h3>
                 <p className="mt-3 text-xl leading-relaxed">
-                  A browser Git visualizer with lesson tracks, challenges, and a sandbox.
+                  A browser Git visualizer. Pick a Main or Remote lesson, try later challenges, or use its sandbox.
                 </p>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function LearnGitBranchingAlternative() {
             WHICH ONE FITS?
           </h2>
           <p className="mt-5 text-xl leading-relaxed">
-            Try GitQuest for a short, guided start with Git. Choose Learn Git Branching to explore more lesson groups or build your own practice in its sandbox.
+            Pick GitQuest if a fixed path and target graph help you finish a first Git story. Pick Learn Git Branching if you want to jump between topics or test commands in a sandbox.
           </p>
           <p className="mt-5 text-lg text-[var(--dq-muted)]">
             GitQuest is a scoped demo. This guide does not claim that it covers every Learn Git Branching lesson or feature.
