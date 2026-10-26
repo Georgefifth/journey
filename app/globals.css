@@ -566,6 +566,9 @@ body {
 .quest-index-search:focus-visible { border-color:var(--dq-gold); }
 .quest-index-link span { display:block; }
 .quest-index-link:hover { border-color:var(--dq-gold); background:var(--dq-panel); }
+.quest-index-guides { display:flex; flex-wrap:wrap; gap:4px 16px; padding:4px 10px 10px; border-left:2px solid var(--dq-border); font-size:16px; }
+.quest-index-guides a { color:var(--dq-gold); text-decoration:underline; text-underline-offset:3px; }
+.quest-index-guides a:hover, .quest-index-guides a:focus-visible { color:var(--dq-cream); }
 .build-thumbnail { width:100%; height:auto; max-height:300px; object-fit:contain; background:var(--night-0); border:2px solid var(--dq-border); }
 .dialogue-story { min-height:96px; }
 article, h2, h3 { overflow-wrap:anywhere; }
