@@ -95,6 +95,7 @@ export default function GitBranchingPractice() {
             <Link href="/#firstcommit-gitquest" className="underline hover:text-[var(--dq-gold)]">GitQuest build log</Link>
             <Link href="/git-first-commit-practice" className="underline hover:text-[var(--dq-gold)]">First Git commit practice</Link>
             <Link href="/git-merge-conflict-practice" className="underline hover:text-[var(--dq-gold)]">Git merge conflict practice</Link>
+            <Link href="/github-skills-alternative" className="underline hover:text-[var(--dq-gold)]">GitHub Skills alternative</Link>
             <a href="https://georgefifth.github.io/gitquest/" className="underline hover:text-[var(--dq-gold)]">GitQuest demo</a>
             <a href="https://github.com/Georgefifth/gitquest" className="underline hover:text-[var(--dq-gold)]">GitQuest source</a>
           </div>
