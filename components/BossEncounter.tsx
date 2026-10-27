@@ -245,7 +245,7 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
               )}
               {hackathon.repo && (
                 <a href={hackathon.repo} target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => posthog.capture("build_link_opened", { build_id: build.id, destination: "github" })}>
-                  ▶ REPO
+                  ▶ SOURCE CODE
                 </a>
               )}
               {build.id === "gitquest" && (

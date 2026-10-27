@@ -53,6 +53,13 @@ export default function QuestMap({hackathons, activeId, onSelect}: Props) {
             <span key={build.id} className="text-[var(--dq-gold)]">{build.projectName}</span>
           )}
         </button>
+          {h.builds.some(build => build.githubUrl) && <div className="quest-index-sources" aria-label={`${h.eventName} build sources`}>
+            {h.builds.filter(build => build.githubUrl).map(build =>
+              <a key={build.id} href={build.githubUrl!} target="_blank" rel="noopener noreferrer" aria-label={`View ${build.projectName} source code`}>
+                {build.projectName} SOURCE ↗
+              </a>
+            )}
+          </div>}
           {h.builds.some(build => build.id === "gitquest") && <div className="quest-index-guides" aria-label="GitQuest comparisons">
             <Link href="/learn-git-branching-alternative">GitQuest vs Learn Git Branching</Link>
             <Link href="/oh-my-git-alternative">Oh My Git! alternative</Link>
