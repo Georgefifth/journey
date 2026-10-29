@@ -2,6 +2,7 @@
 import { useState } from "react";
 import QuestRegion from "./QuestRegion";
 import { dateLabel, statusConfig, type Hackathon } from "../data/hackathons";
+import posthog from "posthog-js";
 
 type Props = {hackathons: Hackathon[]; activeId: string | null; onSelect: (id: string) => void};
 export default function QuestMap({hackathons, activeId, onSelect}: Props) {
@@ -54,7 +55,7 @@ export default function QuestMap({hackathons, activeId, onSelect}: Props) {
         </button>
           {h.builds.some(build => build.githubUrl) && <div className="quest-index-sources" aria-label={`${h.eventName} build sources`}>
             {h.builds.filter(build => build.githubUrl).map(build =>
-              <a key={build.id} href={build.githubUrl!} target="_blank" rel="noopener noreferrer" aria-label={`View ${build.projectName} source code`}>
+              <a key={build.id} href={build.githubUrl!} target="_blank" rel="noopener noreferrer" aria-label={`View ${build.projectName} source code`} onClick={() => posthog.capture("build_link_opened", { build_id: build.id, destination: "github", source: "quest_index" })}>
                 {build.projectName} SOURCE ↗
               </a>
             )}
