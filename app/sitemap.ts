@@ -11,5 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {url: "https://georgefifth.xyz/git-merge-conflict-practice", lastModified: "2026-10-24", changeFrequency: "yearly", priority: 0.6},
     {url: "https://georgefifth.xyz/git-branching-practice", lastModified: "2026-10-26", changeFrequency: "yearly", priority: 0.6},
     {url: "https://georgefifth.xyz/github-skills-alternative", lastModified: "2026-10-26", changeFrequency: "yearly", priority: 0.6},
+    {url: "https://georgefifth.xyz/terms", lastModified: "2026-10-02", changeFrequency: "yearly", priority: 0.2},
+    {url: "https://georgefifth.xyz/privacy", lastModified: "2026-10-02", changeFrequency: "yearly", priority: 0.2},
+
   ];
 }

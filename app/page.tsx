@@ -121,6 +121,10 @@ export default function Home() {
             <p className="mt-5 text-[var(--dq-muted)] text-[16px]">
               Questions about a build? <a className="underline hover:text-[var(--dq-gold)]" href="mailto:georgefifth@mail.tin.computer">Email Georgefifth</a>.
             </p>
+            <nav aria-label="Site notices" className="mt-4 flex justify-center gap-6 text-[16px] text-[var(--dq-muted)]">
+              <Link className="underline hover:text-[var(--dq-gold)] focus-visible:text-[var(--dq-gold)]" href="/terms">Terms</Link>
+              <Link className="underline hover:text-[var(--dq-gold)] focus-visible:text-[var(--dq-gold)]" href="/privacy">Privacy</Link>
+            </nav>
             <p className="pixel-font text-[7px] text-[var(--dq-muted)] mt-6 tracking-widest opacity-70 leading-relaxed">
               © 2026 GEORGEFIFTH · THE BUILD LOG · VER.3.0
               <span className="footer-credit-separator" aria-hidden="true"> · </span>
