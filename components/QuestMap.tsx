@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import QuestRegion from "./QuestRegion";
 import { dateLabel, statusConfig, type Hackathon } from "../data/hackathons";
 
@@ -59,10 +58,6 @@ export default function QuestMap({hackathons, activeId, onSelect}: Props) {
                 {build.projectName} SOURCE ↗
               </a>
             )}
-          </div>}
-          {h.builds.some(build => build.id === "gitquest") && <div className="quest-index-guides" aria-label="GitQuest comparisons">
-            <Link href="/learn-git-branching-alternative">GitQuest vs Learn Git Branching</Link>
-            <Link href="/oh-my-git-alternative">Oh My Git! alternative</Link>
           </div>}
         </li>)}
       </ol>

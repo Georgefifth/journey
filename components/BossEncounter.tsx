@@ -248,16 +248,22 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
                   ▶ SOURCE CODE
                 </a>
               )}
-              {build.id === "gitquest" && (
-                <>
-                  <Link href="/interactive-git-learning-game" className="cmd-link">▶ INTERACTIVE GIT GAME</Link>
-                  <Link href="/git-first-commit-practice" className="cmd-link">▶ FIRST COMMIT</Link>
-                  <Link href="/git-branching-practice" className="cmd-link">▶ GIT BRANCHING</Link>
-                  <Link href="/oh-my-git-alternative" className="cmd-link">▶ OH MY GIT! GUIDE</Link>
-                  <Link href="/learn-git-branching-alternative" className="cmd-link">▶ LEARN GIT BRANCHING GUIDE</Link>
-                </>
-              )}
             </div>
+          )}
+
+          {build.id === "gitquest" && (
+            <nav aria-label="GitQuest guides" className="gitquest-guide-links mb-6">
+              <span className="pixel-font text-[8px] tracking-widest text-[var(--dq-gold)]">GITQUEST GUIDES</span>
+              <div className="gitquest-guide-links-list">
+                <Link href="/interactive-git-learning-game">Interactive Git learning game</Link>
+                <Link href="/git-first-commit-practice">First commit practice</Link>
+                <Link href="/git-branching-practice">Branching practice</Link>
+                <Link href="/git-merge-conflict-practice">Merge conflict practice</Link>
+                <Link href="/github-skills-alternative">GitHub Skills alternative</Link>
+                <Link href="/learn-git-branching-alternative">GitQuest vs Learn Git Branching</Link>
+                <Link href="/oh-my-git-alternative">Oh My Git! alternative</Link>
+              </div>
+            </nav>
           )}
 
           {build.id === "gitquest" && <GitQuestFeedback />}
