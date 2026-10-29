@@ -569,9 +569,10 @@ body {
 .quest-index-sources { display:flex; flex-wrap:wrap; gap:4px 16px; padding:4px 10px 10px; border-left:2px solid var(--dq-border); font-size:16px; }
 .quest-index-sources a { color:var(--dq-gold); text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
 .quest-index-sources a:hover, .quest-index-sources a:focus-visible { color:var(--dq-cream); }
-.quest-index-guides { display:flex; flex-wrap:wrap; gap:4px 16px; padding:4px 10px 10px; border-left:2px solid var(--dq-border); font-size:16px; }
-.quest-index-guides a { color:var(--dq-gold); text-decoration:underline; text-underline-offset:3px; }
-.quest-index-guides a:hover, .quest-index-guides a:focus-visible { color:var(--dq-cream); }
+.gitquest-guide-links { border-top:1px solid var(--dq-border); padding-top:16px; }
+.gitquest-guide-links-list { display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:12px; font-size:17px; }
+.gitquest-guide-links-list a { color:var(--dq-cream); text-decoration:underline; text-decoration-color:var(--dq-gold); text-underline-offset:4px; }
+.gitquest-guide-links-list a:hover, .gitquest-guide-links-list a:focus-visible { color:var(--dq-gold); }
 .build-thumbnail { width:100%; height:auto; max-height:300px; object-fit:contain; background:var(--night-0); border:2px solid var(--dq-border); }
 .dialogue-story { min-height:96px; }
 article, h2, h3 { overflow-wrap:anywhere; }
