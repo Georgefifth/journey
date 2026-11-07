@@ -70,7 +70,7 @@ export default function Home() {
           <span className="text-[var(--dq-gold)]">SAVE FILE: GEORGEFIFTH</span>
           <a href="https://github.com/Georgefifth" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
           <a href="https://devpost.com/Georgefifth" target="_blank" rel="noopener noreferrer">DEVPOST ↗</a>
-          <Link href="/faq">ABOUT ↗</Link>
+          <Link href="/faq">FAQ ↗</Link>
         </nav>
         {/* Title screen */}
         <TitleScreen
