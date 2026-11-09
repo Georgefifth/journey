@@ -49,9 +49,32 @@ const tools = [
   },
 ];
 
+const comparisonData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://georgefifth.xyz/git-learning-tools-comparison#article",
+  url: "https://georgefifth.xyz/git-learning-tools-comparison",
+  headline: "Git learning games compared: GitQuest, Oh My Git!, Learn Git Branching",
+  description: "Compare three interactive Git learning games by where you play, how you practice, and lesson scope.",
+  keywords: ["interactive Git learning game", "browser-based Git practice"],
+  isPartOf: { "@id": "https://georgefifth.xyz/#website" },
+  mainEntity: {
+    "@type": "ItemList",
+    name: "Git learning games compared",
+    numberOfItems: tools.length,
+    itemListElement: tools.map((tool, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: tool.name,
+      url: tool.href,
+    })),
+  },
+};
+
 export default function GitLearningToolsComparison() {
   return (
     <main className="journey-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(comparisonData).replace(/</g, "\\u003c") }} />
       <div className="relative z-10 mx-auto max-w-5xl px-5 pb-20 pt-8 sm:px-8 sm:pt-12">
         <nav aria-label="Page navigation" className="identity-nav !max-w-none !px-0">
           <span className="text-[var(--dq-gold)]">SAVE FILE: GIT PRACTICE</span>
