@@ -13,5 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {url: "https://georgefifth.xyz/git-rebase-practice", lastModified: "2026-11-02", changeFrequency: "yearly", priority: 0.6},
     {url: "https://georgefifth.xyz/git-reset-hard-head-1", lastModified: "2026-11-09", changeFrequency: "yearly", priority: 0.6},
     {url: "https://georgefifth.xyz/github-skills-alternative", lastModified: "2026-10-26", changeFrequency: "yearly", priority: 0.6},
+    {url: "https://georgefifth.xyz/git-learning-tools-comparison", lastModified: "2026-11-09", changeFrequency: "yearly", priority: 0.6},
   ];
 }
