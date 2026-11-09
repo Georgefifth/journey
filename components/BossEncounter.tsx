@@ -259,6 +259,7 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
                 <Link href="/git-first-commit-practice">First commit practice</Link>
                 <Link href="/git-branching-practice">Branching practice</Link>
                 <Link href="/git-rebase-practice">Rebase practice</Link>
+                <Link href="/git-reset-hard-head-1">Git reset hard practice</Link>
                 <Link href="/git-merge-conflict-practice">Merge conflict practice</Link>
                 <Link href="/github-skills-alternative">GitHub Skills alternative</Link>
                 <Link href="/learn-git-branching-alternative">GitQuest vs Learn Git Branching</Link>
