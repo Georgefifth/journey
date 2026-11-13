@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import PixelSprite from "./pixel/PixelSprite";
 import {
@@ -98,7 +98,9 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
   const dispHp = hackathon.hp;
   const litRatio = dispHp / hackathon.maxHp;
   const hpTone = litRatio > 0.6 ? "hp-high" : litRatio > 0.3 ? "hp-mid" : "hp-low";
-  const lit = Math.round(litRatio * segCount);
+  const exactLit = litRatio * segCount;
+  const lit = Math.floor(exactLit);
+  const partialFill = Math.round((exactLit - lit) * 100);
 
   return (
     <motion.article
@@ -180,7 +182,8 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
               {Array.from({ length: segCount }).map((_, i) => (
                 <motion.span
                   key={i}
-                  className={`hp-seg ${i < lit ? "on" : ""}`}
+                  className={`hp-seg ${i < lit ? "on" : i === lit && partialFill ? "partial" : ""}`}
+                  style={i === lit && partialFill ? { "--fill": `${partialFill}%` } as CSSProperties : undefined}
                   initial={false}
                   animate={inView ? { opacity: 1 } : undefined}
                   transition={{ delay: 0.35 + i * 0.055 }}

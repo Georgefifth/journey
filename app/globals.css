@@ -210,10 +210,19 @@ body {
   position: relative;
 }
 .hp-seg.on { background: var(--seg, var(--dq-green)); }
+.hp-seg.partial { background: linear-gradient(to right, var(--seg, var(--dq-green)) var(--fill), #20203a var(--fill)); }
 .hp-seg.on::after {
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.28);
+}
+.hp-seg.partial::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: var(--fill);
   height: 3px;
   background: rgba(255, 255, 255, 0.28);
 }
