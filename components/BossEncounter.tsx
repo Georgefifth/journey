@@ -258,13 +258,13 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
             <nav aria-label="GitQuest guides" className="gitquest-guide-links mb-6">
               <span className="pixel-font text-[8px] tracking-widest text-[var(--dq-gold)]">GITQUEST GUIDES</span>
               <div className="gitquest-guide-links-list">
-                <Link href="/git-learning-tools-comparison">Git learning tools compared</Link>
                 <Link href="/interactive-git-learning-game">Interactive Git learning game</Link>
                 <Link href="/git-first-commit-practice">First commit practice</Link>
                 <Link href="/git-branching-practice">Branching practice</Link>
                 <Link href="/git-rebase-practice">Rebase practice</Link>
                 <Link href="/git-reset-hard-head-1">Git reset hard practice</Link>
                 <Link href="/git-merge-conflict-practice">Merge conflict practice</Link>
+                <Link href="/git-learning-tools-comparison">Compare Git games</Link>
                 <Link href="/github-skills-alternative">GitHub Skills alternative</Link>
                 <Link href="/learn-git-branching-alternative">GitQuest vs Learn Git Branching</Link>
                 <Link href="/oh-my-git-alternative">Oh My Git! alternative</Link>
