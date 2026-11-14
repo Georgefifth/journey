@@ -8,6 +8,8 @@ Project descriptions and event results reflect the linked public records. Follow
 ## Main page
 
 - [The Build Log](https://georgefifth.xyz/): Browse hackathon events, build notes, project demos, and source links.
+- [Beginner Git game lesson](https://georgefifth.xyz/beginner-git-game-lesson): A 35-minute GitQuest browser lesson for first commits and branches, with a check for understanding.
+- [Git practice before a hackathon](https://georgefifth.xyz/git-practice-before-hackathon): A solo GitQuest plan for commits and branches, followed by practice in a disposable local repository.
 
 ## Discovery
 

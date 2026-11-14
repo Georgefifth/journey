@@ -38,6 +38,8 @@ jobs:
           test -s out/faq.html
           test -s out/git-learning-tools-comparison.html
           test -s out/git-rebase-practice.html
+          test -s out/beginner-git-game-lesson.html
+          test -s out/git-practice-before-hackathon.html
           test "$(cat out/CNAME)" = "georgefifth.xyz"
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
