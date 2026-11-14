@@ -77,3 +77,13 @@ Add both domains in Settings → Domains. Copy the project-specific A/CNAME/TXT 
 `components/pixel/sprites.ts` holds the original palette/artwork. `QuestRegion.tsx` retains the road, castles, mage, birds and moon; `QuestMap.tsx` adds navigation. `BossEncounter.tsx` retains dialogue cards, typewriter, segmented progress, inventory and loot. `scripts/generate-og.mjs` renders the same vector sprites and a bitmap alphabet into a 1200×630 poster without network dependencies.
 
 SFX defaults off and remembers the user’s choice. Motion respects reduced-motion preferences. Thirteen real project thumbnails total about 66 KB before Next image optimization; generic Devpost logos are omitted.
+
+## Explore the build log
+
+- [Visit The Build Log](https://georgefifth.xyz/) to browse the hackathon quests and project notes.
+- [Try GitQuest](https://georgefifth.github.io/gitquest/), the playable Git practice project featured in the build log.
+
+These Git learning guides are in this repository but await the site's next release. Their public links may return 404 until publishing is enabled:
+
+- [A 35-minute beginner Git game lesson](https://georgefifth.xyz/beginner-git-game-lesson)
+- [Git practice before a hackathon](https://georgefifth.xyz/git-practice-before-hackathon)
