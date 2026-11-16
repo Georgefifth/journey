@@ -2,6 +2,22 @@
 
 Georgefifth’s living pixel-art RPG chronicle: hackathons are quests, projects are builds, and each shipped experiment expands the save file. Next.js 15, Tailwind 3, Framer Motion, original hand-drawn SVG sprites, optional Web Audio SFX.
 
+## Explore the build log
+
+- [Browse the hackathon quests and builds](https://georgefifth.xyz/) in the live journal.
+- [Play GitQuest](https://georgefifth.github.io/gitquest/), the Git practice game featured in the journal.
+
+The Git learning pages below are ready in this repository. Their site versions await release, so these links open the page source:
+
+- [Beginner Git game lesson (35 minutes)](app/beginner-git-game-lesson/page.tsx)
+- [First Git commit practice](app/git-first-commit-practice/page.tsx)
+- [Git branching practice](app/git-branching-practice/page.tsx)
+- [Six Git practice exercises](app/git-practice-exercises/page.tsx)
+- [Git practice before a hackathon](app/git-practice-before-hackathon/page.tsx)
+- [Compare Git learning games](app/git-learning-tools-comparison/page.tsx)
+
+[Browse the other Git guides in the repository](app/).
+
 ## Run and verify
 
 Use Node 22.18+ (the OG utility imports TypeScript sprite data).
@@ -77,13 +93,3 @@ Add both domains in Settings → Domains. Copy the project-specific A/CNAME/TXT 
 `components/pixel/sprites.ts` holds the original palette/artwork. `QuestRegion.tsx` retains the road, castles, mage, birds and moon; `QuestMap.tsx` adds navigation. `BossEncounter.tsx` retains dialogue cards, typewriter, segmented progress, inventory and loot. `scripts/generate-og.mjs` renders the same vector sprites and a bitmap alphabet into a 1200×630 poster without network dependencies.
 
 SFX defaults off and remembers the user’s choice. Motion respects reduced-motion preferences. Thirteen real project thumbnails total about 66 KB before Next image optimization; generic Devpost logos are omitted.
-
-## Explore the build log
-
-- [Visit The Build Log](https://georgefifth.xyz/) to browse the hackathon quests and project notes.
-- [Try GitQuest](https://georgefifth.github.io/gitquest/), the playable Git practice project featured in the build log.
-
-These Git learning guides are in this repository but await the site's next release. Their public links may return 404 until publishing is enabled:
-
-- [A 35-minute beginner Git game lesson](https://georgefifth.xyz/beginner-git-game-lesson)
-- [Git practice before a hackathon](https://georgefifth.xyz/git-practice-before-hackathon)
