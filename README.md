@@ -11,12 +11,27 @@ Explore **37 event stops** and **17 builds** in the [live journal](https://georg
 
 The Git learning pages below are ready in this repository. Their site versions await release, so these links open the page source:
 
-- [Beginner Git game lesson (35 minutes)](app/beginner-git-game-lesson/page.tsx)
+### Practice guides
+
+- [Interactive Git learning game](app/interactive-git-learning-game/page.tsx)
 - [First Git commit practice](app/git-first-commit-practice/page.tsx)
 - [Git branching practice](app/git-branching-practice/page.tsx)
-- [Six Git practice exercises](app/git-practice-exercises/page.tsx)
-- [Git practice before a hackathon](app/git-practice-before-hackathon/page.tsx)
+- [Git merge conflict practice](app/git-merge-conflict-practice/page.tsx)
+- [Git rebase practice](app/git-rebase-practice/page.tsx)
+- [Git reset hard practice](app/git-reset-hard-head-1/page.tsx)
+
+### Compare learning tools
+
+- [GitQuest and Oh My Git!](app/oh-my-git-alternative/page.tsx)
+- [GitQuest and Learn Git Branching](app/learn-git-branching-alternative/page.tsx)
+- [GitQuest and GitHub Skills](app/github-skills-alternative/page.tsx)
 - [Compare Git learning games](app/git-learning-tools-comparison/page.tsx)
+
+### Lessons and exercises
+
+- [Beginner Git game lesson (35 minutes)](app/beginner-git-game-lesson/page.tsx)
+- [Git practice before a hackathon](app/git-practice-before-hackathon/page.tsx)
+- [Six Git practice exercises](app/git-practice-exercises/page.tsx)
 
 [Browse the other Git guides in the repository](https://github.com/Georgefifth/journey/tree/master/app).
 
