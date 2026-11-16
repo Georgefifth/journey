@@ -2,6 +2,8 @@
 
 Georgefifth’s living pixel-art RPG chronicle: hackathons are quests, projects are builds, and each shipped experiment expands the save file. Next.js 15, Tailwind 3, Framer Motion, original hand-drawn SVG sprites, optional Web Audio SFX.
 
+Explore **37 event stops** and **17 builds** in the [live journal](https://georgefifth.xyz/).
+
 ## Explore the build log
 
 - [Browse the hackathon quests and builds](https://georgefifth.xyz/) in the live journal.
