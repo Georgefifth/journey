@@ -16,7 +16,7 @@ The Git learning pages below are ready in this repository. Their site versions a
 - [Git practice before a hackathon](app/git-practice-before-hackathon/page.tsx)
 - [Compare Git learning games](app/git-learning-tools-comparison/page.tsx)
 
-[Browse the other Git guides in the repository](app/).
+[Browse the other Git guides in the repository](https://github.com/Georgefifth/journey/tree/master/app).
 
 ## Run and verify
 
