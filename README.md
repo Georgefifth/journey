@@ -11,6 +11,8 @@ Explore **37 event stops** and **17 builds** in the [live journal](https://georg
 
 The Git learning pages below are ready in this repository. Their site versions await release, so these links open the page source:
 
+[Read the Git guides as Markdown](guides/README.md).
+
 ### Practice guides
 
 - [Interactive Git learning game](app/interactive-git-learning-game/page.tsx)
