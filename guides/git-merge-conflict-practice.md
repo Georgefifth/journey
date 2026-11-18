@@ -8,4 +8,4 @@ Run `git merge tuning` in the simulated terminal. Open `config.txt` and read the
 
 Repeat this skill in a disposable local repository before resolving a conflict in important work. Read the [official Git merge guide](https://git-scm.com/docs/git-merge) for the full behavior.
 
-Site version: https://georgefifth.xyz/git-merge-conflict-practice
+Canonical site page (available after release): https://georgefifth.xyz/git-merge-conflict-practice

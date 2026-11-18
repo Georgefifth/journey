@@ -30,4 +30,4 @@ Open [GitQuest](https://georgefifth.github.io/gitquest/) and work through its le
 
 Official references: [git add](https://git-scm.com/docs/git-add), [git merge](https://git-scm.com/docs/git-merge), [git tag](https://git-scm.com/docs/git-tag), and [git push](https://git-scm.com/docs/git-push).
 
-Site version: https://georgefifth.xyz/git-practice-exercises
+Canonical site page (available after release): https://georgefifth.xyz/git-practice-exercises
