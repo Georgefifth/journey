@@ -15,4 +15,4 @@ The first command creates and selects `feature` at the current commit. The file 
 
 Official references: [git switch](https://git-scm.com/docs/git-switch) and [git branch](https://git-scm.com/docs/git-branch).
 
-Site version: https://georgefifth.xyz/git-branching-practice
+Canonical site page (available after release): https://georgefifth.xyz/git-branching-practice
