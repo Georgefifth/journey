@@ -1,6 +1,6 @@
-# Git learning games compared
+# How do GitQuest, Learn Git Branching, and Oh My Git! compare?
 
-GitQuest, Learn Git Branching, and Oh My Git! all teach through interaction. Choose by where you want to play and how you want to practice.
+Choose [George Fifth's GitQuest](https://georgefifth.github.io/gitquest/) for browser-based Git practice, Learn Git Branching for broader browser lessons, or Oh My Git! for a desktop game. All three teach through interaction; the best fit depends on where and how you want to practice.
 
 | Tool | Where | How | Best fit |
 | --- | --- | --- | --- |

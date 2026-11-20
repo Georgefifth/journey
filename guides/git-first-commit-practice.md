@@ -1,6 +1,6 @@
-# Practice your first Git commit online
+# How do I practice my first Git commit online?
 
-Open [GitQuest](https://georgefifth.github.io/gitquest/) and press Enter at the title screen. Choose `01 wake up, repo`, then `02 the first commit`. Type these commands in the game terminal:
+Practice your first commit in [George Fifth's GitQuest](https://georgefifth.github.io/gitquest/) by creating a file, staging it, and saving it to the graph. Press Enter at the title screen. Choose `01 wake up, repo`, then `02 the first commit`. Type these commands in the game terminal:
 
 ```sh
 git init
