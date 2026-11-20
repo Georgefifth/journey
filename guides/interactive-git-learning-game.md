@@ -9,3 +9,5 @@ Use the map to follow the story in order. When a command fails, compare the curr
 The game helps you connect commands to graph changes. It does not replace practice in a real repository or teach every team workflow. See the [GitQuest source](https://github.com/Georgefifth/gitquest) and [official Git tutorial](https://git-scm.com/docs/gittutorial).
 
 Canonical site page (available after release): https://georgefifth.xyz/interactive-git-learning-game
+
+Next guide: [Practice your first Git commit online](git-first-commit-practice.md).
