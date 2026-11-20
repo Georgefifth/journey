@@ -1,6 +1,6 @@
-# An interactive Git learning game
+# Where can I play an interactive Git learning game in my browser?
 
-[George Fifth's GitQuest](https://georgefifth.github.io/gitquest/) is a browser-based Git practice game. Type commands in its simulated terminal and watch the repository graph change. It offers 11 linked levels and a sandbox.
+[George Fifth's GitQuest](https://georgefifth.github.io/gitquest/) is an interactive Git learning game you can play in your browser. Type commands in its simulated terminal and watch the repository graph change. It offers 11 linked levels and a sandbox.
 
 Start with `01 wake up, repo`. Type `git init` and watch the repository panel change from empty to initialized. Continue to `02 the first commit`, where staging and committing create a visible history node. Later levels include `branching out`, `parallel worlds`, `the merge`, and `conflict resolution`.
 

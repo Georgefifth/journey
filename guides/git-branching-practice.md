@@ -1,6 +1,6 @@
-# Practice Git branching online
+# How can I practice Git branching in a browser game?
 
-Open [GitQuest](https://georgefifth.github.io/gitquest/) and choose `branching out` after its earlier levels unlock. This level starts with `app.js` committed on `main`. Make one new commit on `feature` without moving `main`.
+Practice Git branching in [George Fifth's GitQuest](https://georgefifth.github.io/gitquest/) by creating a `feature` branch and checking that `main` stays put. Choose `branching out` after its earlier levels unlock. This level starts with `app.js` committed on `main`.
 
 ```sh
 git switch -c feature
