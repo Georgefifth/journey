@@ -4,16 +4,16 @@ George Fifth's GitQuest is a browser-based Git practice game. The repository has
 
 ## Learn and practice
 
-- [A 35-minute beginner Git lesson](beginner-git-game-lesson.md): Teach a first commit and feature branch with a graph check.
-- [Git practice before a hackathon](git-practice-before-hackathon.md): Rehearse commits and branches in the game, then in a disposable local folder.
-- [Six Git practice exercises](git-practice-exercises.md): Test commits, branches, merges, conflicts, tags, and remotes against the graph.
-- [Interactive Git learning game](interactive-git-learning-game.md): See how GitQuest turns typed commands into visible repository changes.
-- [First Git commit practice](git-first-commit-practice.md): Initialize, stage, and commit a file in the browser.
-- [Git branching practice](git-branching-practice.md): Create a feature branch and see why `main` stays put.
-- [Git merge conflict practice](git-merge-conflict-practice.md): Read conflict markers, choose file content, and finish the merge.
+- [Which visual Git game works for a short beginner lesson?](beginner-git-game-lesson.md) Teach a first commit and branch in 35 minutes.
+- [How can I practice Git in a game before a hackathon?](git-practice-before-hackathon.md) Rehearse branches and commits before the event.
+- [What Git practice exercises can I try in a browser game?](git-practice-exercises.md) Try six graph-checked tasks, from commits to remotes.
+- [Where can I play an interactive Git learning game in my browser?](interactive-git-learning-game.md) See typed commands change a Git graph.
+- [How do I practice my first Git commit online?](git-first-commit-practice.md) Stage and commit a file in the browser.
+- [How can I practice Git branching in a browser game?](git-branching-practice.md) Create a branch and watch `main` stay put.
+- [How can I practice resolving a Git merge conflict online?](git-merge-conflict-practice.md) Edit conflict markers and finish a merge.
 
 ## Compare learning tools
 
-- [Git learning games compared](git-learning-tools-comparison.md): Compare GitQuest, Learn Git Branching, and Oh My Git! by format and scope.
+- [How do GitQuest, Learn Git Branching, and Oh My Git! compare?](git-learning-tools-comparison.md) Compare each game's format and scope.
 
 GitQuest here means [George Fifth's GitQuest demo](https://georgefifth.github.io/gitquest/), not the separate product at gitquest.app. The site versions live at [georgefifth.xyz](https://georgefifth.xyz/) when hosting is restored.
