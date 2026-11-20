@@ -1,6 +1,6 @@
 # Git learning guides
 
-George Fifth's GitQuest is a browser-based Git practice game. The repository has **13 Git learning page routes**. This first public set contains **8 readable guides**.
+George Fifth's GitQuest is a browser-based Git practice game. The repository has **13 Git learning page routes**. This public set contains **9 readable guides**.
 
 ## Learn and practice
 
@@ -14,6 +14,7 @@ George Fifth's GitQuest is a browser-based Git practice game. The repository has
 
 ## Compare learning tools
 
+- [Which Git game should I use?](which-git-game-should-i-use.md) Pick a working browser or desktop game; check GitQuest's demo status.
 - [How do GitQuest, Learn Git Branching, and Oh My Git! compare?](git-learning-tools-comparison.md) Compare each game's format and scope.
 
 GitQuest here means [George Fifth's GitQuest demo](https://georgefifth.github.io/gitquest/), not the separate product at gitquest.app. The eight site versions at [georgefifth.xyz](https://georgefifth.xyz/) await release.
