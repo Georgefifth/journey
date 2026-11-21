@@ -1,6 +1,6 @@
 # What Git practice exercises can I try in a browser game?
 
-Try six Git practice exercises in [George Fifth's GitQuest](https://georgefifth.github.io/gitquest/), covering commits, branches, merges, conflicts, tags, and remotes. Work through its levels in order. Before each command, predict the graph. Compare the result with each check. Use the hint and answer only when needed. The game uses simulated repositories and will not change your local files.
+Try six Git practice exercises in [George Fifth's GitQuest](https://github.com/Georgefifth/gitquest), covering commits, branches, merges, conflicts, tags, and remotes. Work through its levels in order. Before each command, predict the graph. Compare the result with each check. Use the hint and answer only when needed. The game uses simulated repositories and will not change your local files.
 
 ## 1. Make a commit you can find
 

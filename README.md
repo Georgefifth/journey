@@ -7,7 +7,7 @@ Explore **37 event stops** and **17 builds** in the [live journal](https://georg
 ## Explore the build log
 
 - [Browse the hackathon quests and builds](https://georgefifth.xyz/) in the live journal.
-- [Play GitQuest](https://georgefifth.github.io/gitquest/), the Git practice game featured in the journal.
+- [Run GitQuest locally](https://github.com/Georgefifth/gitquest), the Git practice game featured in the journal. Clone the repository, run `python3 -m http.server 8000` from its folder, and open `http://localhost:8000/`.
 
 Eight Git guides are ready to read here. Five more await readable versions. Their site pages await release.
 
