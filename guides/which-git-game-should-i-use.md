@@ -12,4 +12,6 @@ All three teach through interaction. Pick the format that makes you likely to fi
 
 Want the details side by side? Read the [three-game comparison](git-learning-tools-comparison.md).
 
+Canonical guide: https://github.com/Georgefifth/journey/blob/master/guides/which-git-game-should-i-use.md
+
 Next guide: [Play an interactive Git learning game in your browser](interactive-git-learning-game.md).

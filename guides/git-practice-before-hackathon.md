@@ -31,6 +31,6 @@ The graph should show two commits. `feature` points to the second; `main` stays 
 
 **Ready check:** Repeat the two commits without looking at the commands. Then explain why `main` did not move. GitQuest is solo practice and does not simulate team review or a shared remote.
 
-Canonical site page (available after release): https://georgefifth.xyz/git-practice-before-hackathon
+Canonical guide: https://github.com/Georgefifth/journey/blob/master/guides/git-practice-before-hackathon.md
 
 Next guide: [Run a short beginner Git lesson](beginner-git-game-lesson.md).

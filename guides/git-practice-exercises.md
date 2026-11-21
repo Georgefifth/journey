@@ -30,6 +30,6 @@ Try six Git practice exercises in [George Fifth's GitQuest](https://github.com/G
 
 Official references: [git add](https://git-scm.com/docs/git-add), [git merge](https://git-scm.com/docs/git-merge), [git tag](https://git-scm.com/docs/git-tag), and [git push](https://git-scm.com/docs/git-push).
 
-Canonical site page (available after release): https://georgefifth.xyz/git-practice-exercises
+Canonical guide: https://github.com/Georgefifth/journey/blob/master/guides/git-practice-exercises.md
 
 Next guide: [Practice Git before a hackathon](git-practice-before-hackathon.md).

@@ -15,6 +15,6 @@ GitQuest is a practice demo. It does not grade students or sync with a course sy
 
 Official references: [git add](https://git-scm.com/docs/git-add) and [git switch](https://git-scm.com/docs/git-switch).
 
-Canonical site page (available after release): https://georgefifth.xyz/beginner-git-game-lesson
+Canonical guide: https://github.com/Georgefifth/journey/blob/master/guides/beginner-git-game-lesson.md
 
 Next guide: [Compare GitQuest with two other Git games](git-learning-tools-comparison.md).
