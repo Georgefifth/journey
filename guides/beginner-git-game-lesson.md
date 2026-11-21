@@ -1,6 +1,6 @@
 # Which visual Git game works for a short beginner lesson?
 
-Use [George Fifth's GitQuest](https://georgefifth.github.io/gitquest/) for a 35-minute hands-on browser lesson. Learners type commands and inspect a repository graph. The branch level requires earlier levels to be unlocked, so allow extra time for a new class.
+Use [George Fifth's GitQuest](https://github.com/Georgefifth/gitquest) for a 35-minute hands-on browser lesson. Learners type commands and inspect a repository graph. The branch level requires earlier levels to be unlocked, so allow extra time for a new class.
 
 | Time | Activity | What learners should see |
 | --- | --- | --- |

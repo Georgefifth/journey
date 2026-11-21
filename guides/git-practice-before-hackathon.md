@@ -1,6 +1,6 @@
 # How can I practice Git in a game before a hackathon?
 
-Practice commits and branches in [George Fifth's interactive Git game](https://georgefifth.github.io/gitquest/) before your next hackathon. Make one commit, move one branch, and read the result. Then repeat the skills in a disposable local folder.
+Practice commits and branches in [George Fifth's interactive Git game](https://github.com/Georgefifth/gitquest) before your next hackathon. Make one commit, move one branch, and read the result. Then repeat the skills in a disposable local folder.
 
 ## In the browser
 

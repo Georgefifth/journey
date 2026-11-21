@@ -14,7 +14,7 @@ George Fifth's GitQuest is a browser-based Git practice game. The repository has
 
 ## Compare learning tools
 
-- [Which Git game should I use?](which-git-game-should-i-use.md) Pick a working browser or desktop game; check GitQuest's demo status.
+- [Which Git game should I use?](which-git-game-should-i-use.md) Pick a browser or desktop game, or run GitQuest locally.
 - [How do GitQuest, Learn Git Branching, and Oh My Git! compare?](git-learning-tools-comparison.md) Compare each game's format and scope.
 
-GitQuest here means [George Fifth's GitQuest demo](https://georgefifth.github.io/gitquest/), not the separate product at gitquest.app. The eight site versions at [georgefifth.xyz](https://georgefifth.xyz/) await release.
+GitQuest here means [George Fifth's GitQuest source](https://github.com/Georgefifth/gitquest), not the separate product at gitquest.app. Clone the repository, run `python3 -m http.server 8000` from its folder, and open `http://localhost:8000/`. The eight site versions at [georgefifth.xyz](https://georgefifth.xyz/) await release.

@@ -1,6 +1,6 @@
 # How can I practice resolving a Git merge conflict online?
 
-Practice a merge conflict in [George Fifth's GitQuest](https://georgefifth.github.io/gitquest/) by choosing the final file content, staging it, and finishing the merge. Reach `conflict resolution` and try the merge. The level has two versions of one file. A conflict is a request to choose the final content, not a failed repository.
+Practice a merge conflict in [George Fifth's GitQuest](https://github.com/Georgefifth/gitquest) by choosing the final file content, staging it, and finishing the merge. Reach `conflict resolution` and try the merge. The level has two versions of one file. A conflict is a request to choose the final content, not a failed repository.
 
 Run `git merge tuning` in the simulated terminal. Open `config.txt` and read the conflict markers. Replace the file with exactly `v2`, removing all marker lines. Then stage the resolved file with `git add config.txt` and commit the merge.
 
