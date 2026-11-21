@@ -10,6 +10,6 @@ Choose [George Fifth's GitQuest](https://github.com/Georgefifth/gitquest) for br
 
 Need browser-based Git practice that follows one story? Run GitQuest locally. Want to jump among more browser lessons? Try Learn Git Branching. Want a downloadable game with cards and real Git? Try Oh My Git! GitQuest here means George Fifth's game, not the separate product at gitquest.app. These tools differ in scope; this guide does not claim one teaches every Git topic.
 
-Canonical site page (available after release): https://georgefifth.xyz/git-learning-tools-comparison
+Canonical guide: https://github.com/Georgefifth/journey/blob/master/guides/git-learning-tools-comparison.md
 
 Next guide: [See where to play an interactive Git learning game](interactive-git-learning-game.md).

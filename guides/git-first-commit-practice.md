@@ -15,6 +15,6 @@ If the commit does not appear, use `git status` to check whether the file is sta
 
 Official references: [git init](https://git-scm.com/docs/git-init), [git add](https://git-scm.com/docs/git-add), and [git commit](https://git-scm.com/docs/git-commit).
 
-Canonical site page (available after release): https://georgefifth.xyz/git-first-commit-practice
+Canonical guide: https://github.com/Georgefifth/journey/blob/master/guides/git-first-commit-practice.md
 
 Next guide: [Practice Git branching in the browser](git-branching-practice.md).
