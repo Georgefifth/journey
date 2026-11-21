@@ -1,10 +1,10 @@
 # Which Git game should I use?
 
-Use [Learn Git Branching](https://learngitbranching.js.org/) for browser lessons. Use [Oh My Git!](https://ohmygit.org/) if you want a downloadable game with command cards and real Git. George Fifth's GitQuest has a short guided path, but its public demo returned 404 on 20 November 2026.
+Use [Learn Git Branching](https://learngitbranching.js.org/) for browser lessons. Use [Oh My Git!](https://ohmygit.org/) if you want a downloadable game with command cards and real Git. Run George Fifth's GitQuest locally for a short guided path.
 
 ## Pick by how you want to practice
 
-- **I have a short session and want a clear path.** [George Fifth's GitQuest source](https://github.com/Georgefifth/gitquest) describes 11 linked levels with commands, target graphs, and a sandbox. The public demo is unavailable as of 20 November 2026. Until it returns, [start with a first-commit lesson](beginner-git-game-lesson.md) and use another playable game.
+- **I have a short session and want a clear path.** [Get GitQuest from its repository](https://github.com/Georgefifth/gitquest) for 11 linked levels and a sandbox. Clone it, run `python3 -m http.server 8000` from the `gitquest` folder, then open `http://localhost:8000/`. Its README has the full run steps.
 - **I want to choose from many browser challenges.** Try Learn Git Branching. Its visual challenges use typed Git commands, with Main and Remote lesson tracks and a sandbox.
 - **I want a desktop game.** Try Oh My Git! It runs on Linux, macOS, and Windows. You can use command cards or an integrated terminal while the repository changes on screen.
 
