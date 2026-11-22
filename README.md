@@ -19,14 +19,9 @@ Eight Git guides are ready to read here. Five more await readable versions. Thei
 - [First Git commit practice](guides/git-first-commit-practice.md)
 - [Git branching practice](guides/git-branching-practice.md)
 - [Git merge conflict practice](guides/git-merge-conflict-practice.md)
-- [Git rebase practice (page source)](app/git-rebase-practice/page.tsx)
-- [Git reset hard practice (page source)](app/git-reset-hard-head-1/page.tsx)
 
 ### Compare learning tools
 
-- [GitQuest and Oh My Git! (page source)](app/oh-my-git-alternative/page.tsx)
-- [GitQuest and Learn Git Branching (page source)](app/learn-git-branching-alternative/page.tsx)
-- [GitQuest and GitHub Skills (page source)](app/github-skills-alternative/page.tsx)
 - [Compare Git learning games](guides/git-learning-tools-comparison.md)
 
 ### Lessons and exercises
