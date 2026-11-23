@@ -107,6 +107,7 @@ export default function GitPracticeExercises() {
           <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-xl">
             <Link href="/interactive-git-learning-game" className="underline hover:text-[var(--dq-gold)]">Interactive Git learning game</Link>
             <Link href="/git-merge-conflict-practice" className="underline hover:text-[var(--dq-gold)]">Merge conflict practice</Link>
+            <Link href="/git-tag-example" className="underline hover:text-[var(--dq-gold)]">Git tag example</Link>
             <Link href="/#firstcommit-gitquest" className="underline hover:text-[var(--dq-gold)]">GitQuest build log</Link>
             <a href="https://github.com/Georgefifth/gitquest" className="underline hover:text-[var(--dq-gold)]">GitQuest source</a>
             <a href="https://git-scm.com/docs/git" className="underline hover:text-[var(--dq-gold)]">Official Git commands</a>
