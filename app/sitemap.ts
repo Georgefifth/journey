@@ -17,5 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {url: "https://georgefifth.xyz/beginner-git-game-lesson", lastModified: "2026-11-14", changeFrequency: "yearly", priority: 0.6},
     {url: "https://georgefifth.xyz/git-practice-before-hackathon", lastModified: "2026-11-14", changeFrequency: "yearly", priority: 0.6},
     {url: "https://georgefifth.xyz/git-practice-exercises", lastModified: "2026-11-16", changeFrequency: "yearly", priority: 0.6},
+    {url: "https://georgefifth.xyz/git-tag-example", lastModified: "2026-11-23", changeFrequency: "yearly", priority: 0.6},
   ];
 }
