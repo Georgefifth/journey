@@ -2,10 +2,6 @@
 
 George Fifth's GitQuest is a browser-based Git practice game. The repository has **14 Git learning page routes**. This public set contains **10 readable guides**.
 
-## Where the guides live
-
-The [Git learning guides on GitHub](https://github.com/Georgefifth/journey/blob/master/guides/README.md) are the current home for these ten readable lessons. The site guide routes are not published yet. If GitHub Pages is enabled and those routes are verified, the site can become their home.
-
 ## Learn and practice
 
 - [Which visual Git game works for a short beginner lesson?](beginner-git-game-lesson.md) Teach a first commit and branch in 35 minutes.
