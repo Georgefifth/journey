@@ -238,7 +238,11 @@ function BuildEncounter({quest, build, level}: {quest: Hackathon; build: Build; 
           {(
             <div className="flex flex-wrap gap-3 mb-6">
               <a href={build.devpostUrl} target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => posthog.capture("build_link_opened", { build_id: build.id, destination: "devpost" })}>▶ DEVPOST</a>
-              {hackathon.demo && (
+              {build.id === "gitquest" ? (
+                <a href="https://github.com/Georgefifth/journey/blob/master/guides/README.md" target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => posthog.capture("build_link_opened", { build_id: build.id, destination: "local_setup" })}>
+                  ▶ RUN LOCALLY
+                </a>
+              ) : hackathon.demo && (
                 <a href={hackathon.demo} target="_blank" rel="noopener noreferrer" className="cmd-link" onClick={() => {
                   posthog.capture("build_link_opened", { build_id: build.id, destination: "demo" });
                   if (build.id === "gitquest") posthog.capture("gitquest_demo_opened", { build_id: build.id });
